@@ -2,7 +2,7 @@
 
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     User,
     Store,
@@ -14,6 +14,7 @@ import {
     ArrowLeft,
     ArrowRight,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 
 const steps = [
@@ -56,20 +57,91 @@ const steps = [
 
 export default function Page() {
 
-    const [step, setStep] = useState(0);
+    const router = useRouter()
 
-    const [gstRegistered, setGstRegistered] = useState("no");
+
+    const [step, setStep] = useState(() => {
+        if (typeof window !== "undefined") {
+            return Number(localStorage.getItem("seller_step")) || 0;
+        }
+        return 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("seller_step", step);
+    }, [step]);
+
+
+    const [formData, setFormData] = useState(() => {
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem("seller_onboarding");
+            if (saved) return JSON.parse(saved);
+        }
+
+        return {
+            fullName: "",
+            mobile: "",
+            email: "",
+            password: "",
+
+            shopName: "",
+            city: "",
+            state: "राजस्थान | Rajasthan",
+            address: "",
+
+            businessType: "",
+            gstRegistered: "no",
+            gstNumber: "",
+
+            accountHolder: "",
+            bankName: "",
+            accountNumber: "",
+            confirmAccountNumber: "",
+            ifsc: "",
+
+            aadhaar: "",
+            pan: "",
+
+            categories: [],
+        };
+    });
+
 
     const progress = Math.round(((step + 1) / steps.length) * 100);
 
     const handleSubmit = (event) => {
         try {
             event.preventDefault()
-            console.log('form submitted')
+            alert('form submitted')
+            router.push('/thank-you')
+
+            // localstorage remove task
+            localStorage.removeItem("seller_onboarding");
+            localStorage.removeItem("seller_onboarding");
+            localStorage.removeItem("seller_step");
+
         } catch (error) {
             console.log(error.message)
         }
     }
+
+
+    useEffect(() => {
+        localStorage.setItem(
+            "seller_onboarding",
+            JSON.stringify(formData)
+        );
+    }, [formData]);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
 
     return (
         <div className="min-h-screen bg-amber-50 py-12">
@@ -85,7 +157,7 @@ export default function Page() {
 
                     </span>
 
-                    <h1 className="text-5xl font-bold mt-5 text-[#2D1B12]">
+                    <h1 className="lg:text-5xl md:text-4xl text-2xl font-bold mt-5 text-[#2D1B12]">
 
                         विक्रेता पंजीकरण
 
@@ -109,7 +181,7 @@ export default function Page() {
 
 
 
-                    <div className="flex justify-between items-center mb-8">
+                    <div className="w-full overflow-x-scroll custom-scrollbar gap-10 flex justify-between items-center mb-8">
 
                         {steps.map((item, index) => {
 
@@ -120,7 +192,7 @@ export default function Page() {
                             return (
                                 <div
                                     key={index}
-                                    className="flex flex-col items-center flex-1 relative"
+                                    className="flex flex-col pb-6 items-center flex-1 relative"
                                 >
                                     <div
                                         className={`w-16 h-16 rounded-full flex items-center justify-center border-2 transition-all
@@ -170,27 +242,39 @@ export default function Page() {
                                 <div className="grid md:grid-cols-2 gap-6">
 
                                     <input
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleChange}
                                         placeholder="पूरा नाम | Full Name"
-                                        className="h-14 rounded-xl border px-5 outline-none focus:border-amber-500"
+                                        className="h-14 rounded-xl min-w-[200] border px-5 outline-none focus:border-amber-500"
                                     />
 
 
                                     <input
+                                        name="mobile"
+                                        value={formData.mobile}
+                                        onChange={handleChange}
                                         placeholder="मोबाइल नंबर | Mobile Number"
-                                        className="h-14 rounded-xl border px-5 outline-none focus:border-amber-500"
+                                        className="h-14 rounded-xl min-w-[200] border px-5 outline-none focus:border-amber-500"
                                     />
 
 
                                     <input
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
                                         placeholder="ईमेल (वैकल्पिक) | Email (Optional)"
-                                        className="h-14 rounded-xl border px-5 outline-none focus:border-amber-500"
+                                        className="h-14 rounded-xl min-w-[200] border px-5 outline-none focus:border-amber-500"
                                     />
 
 
                                     <input
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
                                         type="password"
                                         placeholder="पासवर्ड | Password"
-                                        className="h-14 rounded-xl border px-5 outline-none focus:border-amber-500"
+                                        className="h-14 rounded-xl min-w-[200] border px-5 outline-none focus:border-amber-500"
                                     />
 
                                 </div>
@@ -202,22 +286,33 @@ export default function Page() {
                                 <div className="grid md:grid-cols-2 gap-6">
 
                                     <input
+                                        name="shopName"
+                                        value={formData.shopName}
+                                        onChange={handleChange}
                                         placeholder="दुकान का नाम | Shop Name"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
+                                        name="city"
+                                        value={formData.city}
+                                        onChange={handleChange}
                                         placeholder="शहर | City"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
+                                        name="state"
+                                        value={formData.state}
+                                        onChange={handleChange}
                                         placeholder="राज्य | State"
-                                        defaultValue="राजस्थान | Rajasthan"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <textarea
+                                        name="address"
+                                        value={formData.address}
+                                        onChange={handleChange}
                                         placeholder="दुकान का पता | Shop Address"
                                         className="rounded-xl border p-5 md:col-span-2 h-32"
                                     />
@@ -229,13 +324,21 @@ export default function Page() {
                             {step === 2 && (
                                 <div className="grid md:grid-cols-2 gap-6">
 
-                                    <select className="h-14 rounded-xl border px-5 outline-none focus:border-amber-500">
-                                        <option>Business Type</option>
-                                        <option>Individual</option>
-                                        <option>Proprietorship</option>
-                                        <option>Partnership</option>
-                                        <option>Private Limited</option>
-                                        <option>LLP</option>
+                                    <select
+                                        name="businessType"
+                                        value={formData.businessType}
+                                        onChange={handleChange}
+                                        required
+                                        className="h-14 min-w-[200] rounded-xl border px-5 outline-none focus:border-amber-500"
+                                    >
+                                        <option value="" disabled>
+                                            Select Business Type
+                                        </option>
+                                        <option value="Individual">Individual</option>
+                                        <option value="Proprietorship">Proprietorship</option>
+                                        <option value="Partnership">Partnership</option>
+                                        <option value="Private Limited">Private Limited</option>
+                                        <option value="LLP">LLP</option>
                                     </select>
 
                                     <div>
@@ -249,9 +352,16 @@ export default function Page() {
 
                                                 <input
                                                     type="radio"
-                                                    checked={gstRegistered === "yes"}
-                                                    onChange={() => setGstRegistered("yes")}
+                                                    name="gstRegistered"
+                                                    checked={formData.gstRegistered === "yes"}
+                                                    onChange={() =>
+                                                        setFormData(prev => ({
+                                                            ...prev,
+                                                            gstRegistered: "yes"
+                                                        }))
+                                                    }
                                                 />
+
 
                                                 Yes
 
@@ -261,27 +371,34 @@ export default function Page() {
 
                                                 <input
                                                     type="radio"
-                                                    checked={gstRegistered === "no"}
-                                                    onChange={() => setGstRegistered("no")}
+                                                    name="gstRegistered"
+                                                    checked={formData.gstRegistered === "no"}
+                                                    onChange={() =>
+                                                        setFormData(prev => ({
+                                                            ...prev,
+                                                            gstRegistered: "no"
+                                                        }))
+                                                    }
                                                 />
-
                                                 No
-
                                             </label>
 
                                         </div>
                                     </div>
 
-                                    {gstRegistered === "yes" && (
+                                    {formData.gstRegistered === "yes" && (
                                         <>
                                             <input
+                                                name="gstNumber"
+                                                value={formData.gstNumber}
+                                                onChange={handleChange}
                                                 placeholder="GST Number"
-                                                className="h-14 rounded-xl border px-5"
+                                                className="h-14 rounded-xl min-w-[200] border px-5"
                                             />
 
                                             <input
                                                 type="file"
-                                                className="h-14 rounded-xl border px-5 py-3"
+                                                className="h-14 rounded-xl min-w-[200] border px-5 py-3"
                                             />
                                         </>
                                     )}
@@ -293,33 +410,48 @@ export default function Page() {
                                 <div className="grid md:grid-cols-2 gap-6">
 
                                     <input
+                                        name="accountHolder"
+                                        value={formData.accountHolder}
+                                        onChange={handleChange}
                                         placeholder="Account Holder Name"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
+                                        name="bankName"
+                                        value={formData.bankName}
+                                        onChange={handleChange}
                                         placeholder="Bank Name"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
+                                        name="accountNumber"
+                                        value={formData.accountNumber}
+                                        onChange={handleChange}
                                         placeholder="Account Number"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
+                                        name="confirmAccountNumber"
+                                        value={formData.confirmAccountNumber}
+                                        onChange={handleChange}
                                         placeholder="Confirm Account Number"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
+                                        name="ifsc"
+                                        value={formData.ifsc}
+                                        onChange={handleChange}
                                         placeholder="IFSC Code"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
                                         type="file"
-                                        className="h-14 rounded-xl border px-5 py-3"
+                                        className="h-14 rounded-xl min-w-[200] border px-5 py-3"
                                     />
 
                                 </div>
@@ -342,6 +474,12 @@ export default function Page() {
                                     ].map((item) => (
 
                                         <p
+                                            onClick={() =>
+                                                setFormData(prev => ({
+                                                    ...prev,
+                                                    categories: [item]
+                                                }))
+                                            }
                                             key={item}
                                             className="h-24 text-center flex items-center justify-center rounded-2xl border hover:bg-[#2D1B12] hover:text-white transition"
                                         >
@@ -359,23 +497,29 @@ export default function Page() {
                                 <div className="grid md:grid-cols-2 gap-6">
 
                                     <input
+                                        name="aadhaar"
+                                        value={formData.aadhaar}
+                                        onChange={handleChange}
                                         placeholder="Aadhaar Number"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
+                                        name="pan"
+                                        value={formData.pan}
+                                        onChange={handleChange}
                                         placeholder="PAN Number"
-                                        className="h-14 rounded-xl border px-5"
+                                        className="h-14 rounded-xl min-w-[200] border px-5"
                                     />
 
                                     <input
                                         type="file"
-                                        className="h-14 rounded-xl border px-5 py-3"
+                                        className="h-14 rounded-xl min-w-[200] border px-5 py-3"
                                     />
 
                                     <input
                                         type="file"
-                                        className="h-14 rounded-xl border px-5 py-3"
+                                        className="h-14 rounded-xl min-w-[200] border px-5 py-3"
                                     />
 
                                 </div>
@@ -409,25 +553,27 @@ export default function Page() {
 
                         {/* Buttons */}
 
-                        <div className="flex justify-between mt-12">
+                        <div className="flex justify-between gap-3 mt-12">
 
-                            <p
+                            <button
+                                type="button"
                                 disabled={step === 0}
                                 onClick={() => setStep(step - 1)}
-                                className="flex items-center gap-2 px-8 h-14 rounded-xl border"
+                                className="flex items-center gap-2 lg:px-5 cursor-pointer hover:scale-110 duration-300 px-3 h-14 rounded-xl border"
                             >
                                 <ArrowLeft />
                                 पिछला | Previous
-                            </p>
+                            </button>
 
                             {step !== 6 ? (
-                                <p
+                                <button
+                                    type="button"
                                     onClick={() => setStep(step + 1)}
-                                    className="flex items-center gap-2 px-8 h-14 rounded-xl bg-[#2D1B12] text-white hover:bg-black"
+                                    className="flex items-center gap-2 lg:px-5 cursor-pointer hover:scale-110 duration-300 px-3 h-14 rounded-xl bg-[#2D1B12] text-white hover:bg-black"
                                 >
                                     अगला | Next
                                     <ArrowRight />
-                                </p>
+                                </button>
                             ) : (
                                 <button className="px-10 h-14 rounded-xl bg-[#2D1B12] text-white">
                                     आवेदन भेजें | Submit Application
