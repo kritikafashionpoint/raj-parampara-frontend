@@ -58,12 +58,12 @@ export default function Footer() {
                         </h3>
 
                         <ul className="space-y-3 text-gray-300">
-                            <li><Link href="/">होम</Link></li>
-                            <li><Link href="/shop">सभी प्रोडक्ट</Link></li>
-                            <li><Link href="/categories">श्रेणियाँ</Link></li>
-                            <li><Link href="/about-us">हमारे बारे में</Link></li>
-                            <li><Link href="/contact-us">संपर्क करें</Link></li>
-                            <li><Link href="/blog">ब्लॉग</Link></li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer"><Link href="/">होम</Link></li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer"><Link href="/shop">सभी उत्पाद</Link></li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer"><Link href="/categories">श्रेणियाँ</Link></li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer"><Link href="/about-us">हमारे बारे में</Link></li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer"><Link href="/contact-us">संपर्क करें</Link></li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer"><Link href="/blog">ब्लॉग</Link></li>
                         </ul>
                     </div>
 
@@ -74,12 +74,12 @@ export default function Footer() {
                         </h3>
 
                         <ul className="space-y-3 text-gray-300">
-                            <li>मोजड़ी</li>
-                            <li>राजपूती परिधान</li>
-                            <li>ब्लू पॉटरी</li>
-                            <li>साड़ियाँ</li>
-                            <li>कृत्रिम आभूषण</li>
-                            <li>हस्तनिर्मित बैग</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">मोजड़ी</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">राजपूती परिधान</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">ब्लू पॉटरी</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">साड़ियाँ</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">कृत्रिम आभूषण</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">हस्तनिर्मित बैग</li>
                         </ul>
                     </div>
 
@@ -90,12 +90,12 @@ export default function Footer() {
                         </h3>
 
                         <ul className="space-y-3 text-gray-300">
-                            <li>विक्रेता बनें</li>
-                            <li>विक्रेता लॉगिन</li>
-                            <li>डैशबोर्ड</li>
-                            <li>रिवॉर्ड्स</li>
-                            <li>कमीशन नीति</li>
-                            <li>सहायता</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">विक्रेता बनें</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">विक्रेता लॉगिन</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">डैशबोर्ड</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">रिवॉर्ड्स</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">कमीशन नीति</li>
+                            <li className="hover:text-amber-300 duration-300 cursor-pointer">सहायता</li>
                         </ul>
                     </div>
 
@@ -136,7 +136,7 @@ export default function Footer() {
                         </h3>
 
                         <p className="text-gray-400 mt-2">
-                            नए प्रोडक्ट, विशेष ऑफ़र और राजस्थान की पारंपरिक विरासत की
+                            नए उत्पाद, विशेष ऑफ़र और राजस्थान की पारंपरिक विरासत की
                             जानकारी सबसे पहले प्राप्त करें।
                         </p>
                     </div>
@@ -178,7 +178,7 @@ export default function Footer() {
                     </div>
 
                     <p className="text-gray-400 text-sm text-center">
-                        हर प्रोडक्ट्समें राजस्थान की कला, हर खरीद में हमारी परंपरा।
+                        हर उत्पाद्समें राजस्थान की कला, हर खरीद में हमारी परंपरा।
                     </p>
 
                 </div>

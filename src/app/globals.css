@@ -14,25 +14,25 @@
 
 
 .custom-scrollbar::-webkit-scrollbar {
-  height: 4px;
+  height: 5px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #ffffff;
-  border-radius: 999px;
+  background: transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background: #92400e;
   border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #b45309;
 }
 
-/* Firefox */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: #92400e #f5e7d2;
+  scrollbar-color: #ffeddf transparent;
 }

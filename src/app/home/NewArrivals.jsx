@@ -39,12 +39,12 @@ export default function NewArrivals() {
                         नया राजस्थानी संग्रह
                     </span>
 
-                    <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold text-amber-900 mt-4">
+                    <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-amber-900 mt-4">
                         नवीनतम राज परंपरा संग्रह
                     </h2>
 
                     <p className="text-gray-600 mt-3 lg:text-lg">
-                        राजस्थान की संस्कृति से प्रेरित नए और खास प्रोडक्टों की खोज करें
+                        राजस्थान की संस्कृति से प्रेरित नए और खास उत्पादों की खोज करें
                     </p>
                 </div>
 

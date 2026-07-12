@@ -21,7 +21,7 @@ export default function PcHeader() {
         },
         {
             title: 'विक्रेता बनें',
-            link: '/be-a-seller',
+            link: '/seller-onboarding',
         }
     ];
     return (
@@ -52,7 +52,7 @@ export default function PcHeader() {
                     })}
 
                     <Link href={'/login'}>
-                        <li className='px-3 py-1.5 hover:scale-105 duration-300 bg-amber-300 border rounded-full text-md cursor-pointer'>
+                        <li className='px-5 py-1.5 hover:scale-105 duration-300 bg-amber-300 border rounded-full text-md cursor-pointer border-gray-700'>
                             यूज़र लॉगिन
                         </li>
                     </Link>

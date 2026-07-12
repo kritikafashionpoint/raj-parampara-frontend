@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Loading from "../Loading";
 
 export default function Banner() {
     return (

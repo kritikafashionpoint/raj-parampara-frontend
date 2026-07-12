@@ -39,8 +39,8 @@ export default function TopSelling() {
                         सबसे लोकप्रिय
                     </span>
 
-                    <h2 className="lg:text-4xl md:text-3xl text-2xl font-bold text-amber-900 mt-4">
-                        सर्वाधिक बिकने वाले प्रोडक्ट
+                    <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold text-amber-900 mt-4">
+                        सर्वाधिक बिकने वाले उत्पाद
                     </h2>
 
                     <p className="text-gray-600 mt-3 lg:text-lg">
