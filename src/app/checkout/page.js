@@ -6,7 +6,7 @@ export const metadata = {
     description: "Complete your order at Raj Parampara.",
 };
 
-export default function page() {
+export default function Page() {
     return (
         <div>
             <CheckOutClient />

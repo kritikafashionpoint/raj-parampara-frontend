@@ -6,7 +6,7 @@ export const metadata = {
     description: 'hello'
 }
 
-export default function page() {
+export default function Page() {
     return (
         <div>
             <LoginClient />

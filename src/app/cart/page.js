@@ -6,7 +6,7 @@ export const metadata = {
     description: 'cart'
 }
 
-export default function page() {
+export default function Page() {
     return (
         <div>
             <CartClient/>
