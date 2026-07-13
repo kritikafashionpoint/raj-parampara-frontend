@@ -1,5 +1,8 @@
+import { SearchAlertIcon, ShoppingCartIcon } from 'lucide-react';
 import Link from 'next/link'
 import React from 'react'
+import { FaSearch } from 'react-icons/fa';
+import { IoSearchOutline } from 'react-icons/io5';
 
 export default function PcHeader() {
     const header_data = [
@@ -51,11 +54,16 @@ export default function PcHeader() {
                         )
                     })}
 
-                    <Link href={'/login'}>
+                    {/* <Link href={'/login'}>
                         <li className='px-5 py-1.5 hover:scale-105 duration-300 bg-amber-300 border rounded-full text-md cursor-pointer border-gray-700'>
                             यूज़र लॉगिन
                         </li>
-                    </Link>
+                    </Link> */}
+
+                    <li className='flex items-center gap-5'>
+                        <span className='cursor-pointer'><IoSearchOutline size={20} /></span>
+                        <Link href={'/cart'}><span className='cursor-pointer bg-amber-800 text-white w-9 h-9 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} /></span></Link>
+                    </li>
 
                 </ul>
             </div>
