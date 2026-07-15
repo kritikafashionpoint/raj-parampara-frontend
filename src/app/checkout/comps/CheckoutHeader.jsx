@@ -9,11 +9,11 @@ export default function CheckoutHeader({ progress }) {
 
             {/* Breadcrumb */}
 
-            <div className="flex items-center gap-2 text-sm text-amber-700">
+            <div className="flex items-center gap-2 text-sm text-gray-800">
 
                 <Link
                     href="/"
-                    className="hover:text-amber-900 transition"
+                    className="hover:text-gray-800 transition"
                 >
                     होम
                 </Link>
@@ -22,7 +22,7 @@ export default function CheckoutHeader({ progress }) {
 
                 <Link
                     href="/cart"
-                    className="hover:text-amber-900 transition"
+                    className="hover:text-gray-800 transition"
                 >
                     कार्ट
                 </Link>
@@ -41,7 +41,7 @@ export default function CheckoutHeader({ progress }) {
 
                 <div>
 
-                    <span className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-900">
+                    <span className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-gray-800">
 
                         <ShieldCheck size={16} />
 
@@ -55,7 +55,7 @@ export default function CheckoutHeader({ progress }) {
 
                     </h1>
 
-                    <p className="mt-3 text-amber-700 text-lg">
+                    <p className="mt-3 text-gray-800 text-lg">
 
                         अपनी जानकारी भरें और अपना ऑर्डर सुरक्षित रूप से पूरा करें।
 
@@ -65,7 +65,7 @@ export default function CheckoutHeader({ progress }) {
 
                 {/* Trust Card */}
 
-                <div className="rounded-3xl border border-amber-200 bg-white shadow-xl p-6 w-full lg:w-[380px]">
+                <div className="rounded-3xl border border-amber-200 bg-white shadow-xl p-6 w-full lg:w-[380]">
 
                     <div className="flex items-start gap-4">
 
@@ -73,7 +73,7 @@ export default function CheckoutHeader({ progress }) {
 
                             <MapPin
                                 size={26}
-                                className="text-amber-900"
+                                className="text-gray-00"
                             />
 
                         </div>
@@ -86,7 +86,7 @@ export default function CheckoutHeader({ progress }) {
 
                             </h3>
 
-                            <p className="mt-2 text-sm leading-7 text-amber-700">
+                            <p className="mt-2 text-sm leading-7 text-gray-800">
 
                                 आपकी हर खरीदारी राजस्थान के स्थानीय कारीगरों
                                 और पारंपरिक व्यवसायों को आगे बढ़ाने में
@@ -114,7 +114,7 @@ export default function CheckoutHeader({ progress }) {
                 />
             </div>
 
-            <div className="mt-3 flex justify-between text-sm font-medium text-amber-700">
+            <div className="mt-3 flex justify-between text-sm font-medium text-gray-800">
 
                 <span>संपर्क जानकारी</span>
 

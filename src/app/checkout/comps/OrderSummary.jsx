@@ -46,7 +46,7 @@ export default function OrderSummary({ onPlaceOrder }) {
                         ऑर्डर सारांश
                     </h2>
 
-                    <p className="text-amber-700 mt-1">
+                    <p className="text-amber-900 mt-1">
                         Order Summary
                     </p>
 
@@ -83,7 +83,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                                 </h3>
 
-                                <p className="text-sm text-amber-700 mt-1">
+                                <p className="text-sm text-amber-900 mt-1">
 
                                     {item.seller}
 
@@ -91,7 +91,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                                 <div className="mt-3 flex justify-between">
 
-                                    <span className="text-sm text-amber-700">
+                                    <span className="text-sm text-amber-900">
 
                                         मात्रा : {item.qty}
 
@@ -115,7 +115,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                 {/* Coupon */}
 
-                <div className="border-t border-amber-200 p-6">
+                {/* <div className="border-t border-amber-200 p-6">
 
                     <label className="text-sm font-semibold text-amber-900">
 
@@ -129,7 +129,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                             <TicketPercent
                                 size={18}
-                                className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-700"
+                                className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-900"
                             />
 
                             <input
@@ -147,7 +147,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                     </div>
 
-                </div>
+                </div> */}
 
                 {/* Price */}
 
@@ -155,7 +155,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                     <div className="flex justify-between">
 
-                        <span className="text-amber-700">
+                        <span className="text-amber-900">
 
                             उप-योग
 
@@ -171,7 +171,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                     <div className="flex justify-between">
 
-                        <span className="text-amber-700">
+                        <span className="text-amber-900">
 
                             डिलीवरी शुल्क
 
@@ -187,7 +187,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                     <div className="flex justify-between">
 
-                        <span className="text-amber-700">
+                        <span className="text-amber-900">
 
                             छूट
 
@@ -265,7 +265,7 @@ export default function OrderSummary({ onPlaceOrder }) {
                             className="text-amber-900"
                         />
 
-                        <span className="text-amber-700">
+                        <span className="text-amber-900">
 
                             पूरे भारत में सुरक्षित डिलीवरी
 
@@ -280,7 +280,7 @@ export default function OrderSummary({ onPlaceOrder }) {
                             className="text-amber-900"
                         />
 
-                        <span className="text-amber-700">
+                        <span className="text-amber-900">
 
                             100% सुरक्षित भुगतान
 
@@ -295,7 +295,7 @@ export default function OrderSummary({ onPlaceOrder }) {
                             className="text-amber-900"
                         />
 
-                        <span className="text-amber-700">
+                        <span className="text-amber-900">
 
                             स्थानीय कारीगरों का समर्थन
 

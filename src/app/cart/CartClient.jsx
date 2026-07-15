@@ -8,7 +8,7 @@ export default function CartClient() {
     const cartItems = [
         {
             id: 1,
-            name: "राजस्थानी मोजड़ी | Rajasthani Mojari",
+            name: "राजस्थानी मोजड़ी ",
             seller: "राज परंपरा स्टोर",
             price: 1499,
             qty: 1,
@@ -16,7 +16,7 @@ export default function CartClient() {
         },
         {
             id: 2,
-            name: "ब्लू पॉटरी फूलदान | Blue Pottery Vase",
+            name: "ब्लू पॉटरी फूलदान",
             seller: "जयपुर हस्तशिल्प",
             price: 999,
             qty: 2,
@@ -98,7 +98,7 @@ export default function CartClient() {
                                         >
                                             <td className="px-6 py-6">
 
-                                                <div className="flex gap-5 items-center">
+                                                <div className="lg:flex grid md:grid-cols-[25%_auto] grid-cols-[50%_auto] gap-5 items-center">
 
                                                     <div className="w-24 h-24 rounded-2xl overflow-hidden border">
 
@@ -118,11 +118,11 @@ export default function CartClient() {
                                                             {item.name}
                                                         </h3>
 
-                                                        <p className="text-sm text-gray-500 mt-1">
+                                                        {/* <p className="text-sm text-gray-500 mt-1">
                                                             Seller :
                                                             {" "}
                                                             {item.seller}
-                                                        </p>
+                                                        </p> */}
 
                                                     </div>
 

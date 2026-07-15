@@ -17,7 +17,7 @@ export default function CheckoutForm({
                     संपर्क एवं डिलीवरी जानकारी
                 </h2>
 
-                <p className="text-amber-700 mt-2">
+                <p className="text-gray-800 mt-2">
                     Contact & Shipping Information
                 </p>
 
@@ -46,7 +46,7 @@ export default function CheckoutForm({
                                 संपर्क जानकारी
                             </h3>
 
-                            <p className="text-sm text-amber-700">
+                            <p className="text-sm text-gray-800">
                                 Contact Information
                             </p>
 
@@ -68,7 +68,7 @@ export default function CheckoutForm({
 
                                 <User
                                     size={18}
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-700"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-800"
                                 />
 
                                 <input
@@ -101,7 +101,7 @@ export default function CheckoutForm({
 
                                 <Phone
                                     size={18}
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-700"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-800"
                                 />
 
                                 <input
@@ -133,7 +133,7 @@ export default function CheckoutForm({
 
                                 <Mail
                                     size={18}
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-700"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-800"
                                 />
 
                                 <input
@@ -182,7 +182,7 @@ export default function CheckoutForm({
                                 डिलीवरी पता
                             </h3>
 
-                            <p className="text-sm text-amber-700">
+                            <p className="text-sm text-gray-800">
                                 Shipping Address
                             </p>
 
@@ -204,7 +204,7 @@ export default function CheckoutForm({
 
                                 <Home
                                     size={18}
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-700"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-800"
                                 />
 
                                 <input
@@ -259,7 +259,7 @@ export default function CheckoutForm({
 
                                 <Landmark
                                     size={18}
-                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-amber-700"
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-800"
                                 />
 
                                 <input

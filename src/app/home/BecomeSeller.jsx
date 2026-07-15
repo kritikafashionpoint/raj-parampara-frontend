@@ -124,7 +124,7 @@ export default function BecomeSeller() {
             <div className="grid grid-cols-2 justify-center gap-4">
 
               <Link
-                href="/seller/register"
+                href="/seller-onboarding"
                 className="bg-amber-300 text-black lg:px-8 px-5 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-amber-400 transition"
               >
                 विक्रेता बनें

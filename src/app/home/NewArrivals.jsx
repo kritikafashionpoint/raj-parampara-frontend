@@ -1,4 +1,5 @@
 import React from "react";
+import ProductCard from "../common/ProductCard";
 
 export default function NewArrivals() {
     const products = [
@@ -52,71 +53,14 @@ export default function NewArrivals() {
                 <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 sm:gap-5">
 
                     {products.map((item, index) => (
-                        <div
-                            key={index}
-                            className="bg-white sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl duration-300 group cursor-pointer"
-                        >
-
-                            {/* Image */}
-                            <div className="overflow-hidden relative pt-6">
-
-                                <img
-                                    src="/token/token.png"
-                                    alt={item.title}
-                                    className="w-full lg:h-66 md:h-60 h-44 object-cover group-hover:scale-105 duration-500"
-                                />
-
-                                <span className="absolute top-3 right-3 bg-red-600 text-white text-xs px-3 py-1 rounded-full">
-                                    20% छूट
-                                </span>
-
-                            </div>
-
-                            {/* Content */}
-                            <div className="p-4">
-
-                                <h3 className="font-semibold lg:text-xl text-base text-amber-900 lg:line-clamp-2 line-clamp-3">
-                                    {item.title}
-                                </h3>
-
-                                <div className="flex items-center gap-2 mt-2">
-                                    <span className="text-xl font-bold text-green-600">
-                                        {item.price}
-                                    </span>
-
-                                    <span className="text-gray-400 line-through text-sm">
-                                        {item.oldPrice}
-                                    </span>
-                                </div>
-
-                                {/* Rating */}
-                                {/* <div className="flex items-center mt-3 text-yellow-500 text-sm">
-                                    ★★★★★
-                                    <span className="text-gray-500 ml-2">
-                                        (245)
-                                    </span>
-                                </div> */}
-
-                                {/* Button */}
-                                <div className="grid sm:grid-cols-2 grid-cols-1 gap-3 mt-5">
-                                    <button className="sm:text-md text-sm w-full bg-white text-black border border-gray-300 sm:py-3 py-2 rounded-full font-semibold duration-300">
-                                        विवरण
-                                    </button>
-                                    <button className="sm:text-md text-sm w-full bg-amber-700 hover:bg-amber-800 text-white sm:py-3 py-2 rounded-full font-semibold duration-300">
-                                        अभी खरीदें
-                                    </button>
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <ProductCard key={index} item={item} index={index} />
                     ))}
 
                 </div>
 
                 {/* View All */}
-                <div className="text-end mt-12 lg:px-6 px-4">
-                    <button className="bg-amber-700 hover:bg-amber-900 text-white px-8 sm:py-3 py-2 rounded-full font-semibold duration-300">
+                <div className="text-end mt-12 pb-5">
+                    <button className="bg-linear-to-t from-green-900 to-green-500 hover:scale-105 cursor-pointer text-white px-8 sm:py-3 py-2 rounded-full font-semibold duration-300 shadow-lg">
                         और देखें →
                     </button>
                 </div>

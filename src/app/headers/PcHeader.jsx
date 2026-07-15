@@ -1,7 +1,8 @@
 import { SearchAlertIcon, ShoppingCartIcon } from 'lucide-react';
 import Link from 'next/link'
 import React from 'react'
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaStore } from 'react-icons/fa';
+import { HiOutlineCollection, HiOutlineHome, HiOutlineInformationCircle, HiOutlineShoppingBag } from 'react-icons/hi';
 import { IoSearchOutline } from 'react-icons/io5';
 
 export default function PcHeader() {
@@ -9,31 +10,39 @@ export default function PcHeader() {
         {
             title: 'होम',
             link: '/',
+            icon: <HiOutlineHome />,
         },
         {
             title: 'हमारे बारे में',
             link: '/about-us',
+            icon: <HiOutlineInformationCircle />,
+
         },
         {
-            title: 'दुकान',
-            link: '/shop',
+            title: 'शॉप',
+            link: '/shop-now',
+            icon: <HiOutlineShoppingBag />,
+
         },
         {
-            title: 'श्रेणियाँ',
-            link: '/categories',
+            title: 'कैटेगरी',
+            link: '/category',
+            icon: <HiOutlineCollection />,
+
         },
         {
             title: 'विक्रेता बनें',
             link: '/seller-onboarding',
+            icon: <FaStore />
         }
     ];
     return (
-        <section className='lg:block hidden w-full py-0 bg-white overflow-hidden'>
-            <div className='max-w-[1420] mx-auto h-[70]  flex item-start justify-between'>
+        <section className='lg:block hidden w-full pb-1.5 bg-white overflow-hidden'>
+            <div className='max-w-[1420] mx-auto h-[70] lg:pr-4 pr-4  flex item-start justify-between'>
                 <Link href={'/'}>
                     <div className='flex items-center'>
                         <img src='/logo.png' className='w-[150] h-[100] object-contain object-center' />
-                        <div className='-mt-5 -ml-5'>
+                        <div className='-mt-4 -ml-5'>
                             <div className='font-extrabold tracking-wider text-amber-700 text-[25px]'>
                                 राज परंपरा
                             </div>
@@ -43,13 +52,18 @@ export default function PcHeader() {
                         </div>
                     </div>
                 </Link>
-                <ul className='flex items-center gap-10'>
+                <ul className='flex items-center gap-3'>
                     {header_data.map((item, index) => {
                         return (
-                            <Link key={index} href={item.link}>
-                                <li className='font-semibold text-black text-md cursor-pointer'>
+                            <Link
+                                key={index}
+                                href={item.link}
+                                className="flex items-center gap-2 rounded-2xl px-4 py-4 text-[#2D1B12] hover:bg-white transition group"
+                            >
+                                <span className="text-2xl group-hover:text-amber-800 duration-100 text-gray-500"> {item.icon}</span>
+                                <span className="text-lg text-gray-500 mt-1 font-medium group-hover:text-amber-800 duration-100">
                                     {item.title}
-                                </li>
+                                </span>
                             </Link>
                         )
                     })}
@@ -62,7 +76,7 @@ export default function PcHeader() {
 
                     <li className='flex items-center gap-5'>
                         <span className='cursor-pointer'><IoSearchOutline size={20} /></span>
-                        <Link href={'/cart'}><span className='cursor-pointer bg-amber-800 text-white w-9 h-9 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} /></span></Link>
+                        <Link href={'/cart'}><span className='cursor-pointer bg-amber-800 text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} /></span></Link>
                     </li>
 
                 </ul>

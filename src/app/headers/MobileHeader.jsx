@@ -1,22 +1,29 @@
+'use client'
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { CgClose } from "react-icons/cg";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
 import { LuUserRound } from "react-icons/lu";
+import { MobileMenu } from "../animated_modals/MobileMenu";
 
 export default function MobileHeader() {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     return (
-        <div className="lg:hidden block bg-white">
+        <div className="lg:hidden block bg-white relative">
+
+            <MobileMenu mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen}/>
+
             <div className="max-w-[1420] mx-auto h-[70] px-3 flex items-center justify-between">
 
                 {/* Left */}
-                <button className="text-3xl text-gray-800">
-                    <HiOutlineMenuAlt3 />
+                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-3xl text-gray-800">
+                    {mobileMenuOpen ? <CgClose /> : <HiOutlineMenuAlt3 />}
                 </button>
 
                 {/* Logo */}
                 <Link href="/">
-                    <div className="flex items-center">
+                    <div onClick={()=>setMobileMenuOpen(false)} className="flex items-center">
                         <img
                             src="/logo.png"
                             className="sm:w-[140] sm:h-[140] w-[110] h-[110] mt-4 object-contain"
@@ -50,3 +57,6 @@ export default function MobileHeader() {
         </div>
     );
 }
+
+
+

@@ -12,7 +12,8 @@ import {
 
 export default function Footer() {
     return (
-        <footer className="footer-bg text-white">
+        <footer className="footer-bg text-white shadow-lg">
+            <div className="w-full h-px bg-linear-to-r from-transparent via-amber-700 to-transparent"></div>
             <div className="max-w-[1420] mx-auto px-6 lg:py-14 py-8">
 
                 {/* Top */}
