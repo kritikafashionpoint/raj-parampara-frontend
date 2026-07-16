@@ -25,10 +25,10 @@ export default function BecomeSeller() {
 
           {/* Left Content */}
 
-          <div className="rounded-lg h-full flex flex-col items-center footer-bg px-3 py-7">
+          <div className="rounded-[50] h-full flex flex-col items-center footer-bg px-3 py-7">
 
             <span className="inline-flex items-center gap-2 bg-white border px-5 py-2 rounded-full text-sm font-semibold text-[#2D1B12]">
-              राज परंपरा विक्रेता बनें
+              राज परंपरा के विक्रेता बनें
             </span>
 
 
@@ -52,7 +52,7 @@ export default function BecomeSeller() {
 
           {/* Center Token Reward */}
 
-          <div className="rounded-lg h-full flex p-6 footer-bg px-3 py-7  items-center">
+          <div className="rounded-[50] h-full flex px-10 py-6 footer-bg items-center">
 
             <div>
 
@@ -72,7 +72,7 @@ export default function BecomeSeller() {
                   </h4>
 
                   <p className="text-sm text-gray-200 mt-2">
-                    टोकन को INR रुपये में बदल सकते हैं।
+                    प्राप्त टोकन को रुपये (₹) में बदल सकते हैं।
                     ज्यादा बिक्री करें और ज्यादा रिवॉर्ड पाएं।
                   </p>
 
@@ -86,11 +86,6 @@ export default function BecomeSeller() {
                 <h4 className="font-bold text-[#2D1B12]">
                   1 टोकन = ₹0.20-2.00 (Rs.0.20 to 2.00)
                 </h4>
-
-                <p className="text-sm text-gray-800 ">
-                  विक्रेता पुरस्कार प्रणाली
-                </p>
-
               </div>
             </div>
 
@@ -102,7 +97,7 @@ export default function BecomeSeller() {
 
           {/* Right CTA + Token */}
 
-          <div className="rounded-lg h-full flex flex-col items-center gap-8 footer-bg px-3 py-7">
+          <div className="rounded-[50] h-full flex flex-col items-center gap-8 footer-bg px-3 py-7">
 
 
             <div className="relative">

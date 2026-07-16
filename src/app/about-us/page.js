@@ -1,4 +1,10 @@
+import { ArrowRight, Store } from 'lucide-react'
+import Link from 'next/link'
 import React from 'react'
+import HeroSection_AU from './comps/HeroSection_AU'
+import OurStory_AU from './comps/OurStory_AU'
+import MissionVision_AU from './comps/MissionVission_AU'
+import WhyChooseUs_AU from './comps/WhyChooseUs_AU'
 
 export const metadata = {
     title: 'About Raj Parampara | Rajasthan Handicrafts & Traditional Store',
@@ -7,6 +13,11 @@ export const metadata = {
 
 export default function Page() {
     return (
-        <div>P</div>
+        <>
+            <HeroSection_AU />
+            {/* <OurStory_AU /> */}
+            {/* <MissionVision_AU /> */}
+            {/* <WhyChooseUs_AU /> */}
+        </>
     )
 }

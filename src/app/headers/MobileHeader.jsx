@@ -6,13 +6,14 @@ import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
 import { LuUserRound } from "react-icons/lu";
 import { MobileMenu } from "../animated_modals/MobileMenu";
+import { ShoppingCartIcon } from "lucide-react";
 
 export default function MobileHeader() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     return (
         <div className="lg:hidden block bg-white relative">
 
-            <MobileMenu mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen}/>
+            <MobileMenu mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
 
             <div className="max-w-[1420] mx-auto h-[70] px-3 flex items-center justify-between">
 
@@ -23,7 +24,7 @@ export default function MobileHeader() {
 
                 {/* Logo */}
                 <Link href="/">
-                    <div onClick={()=>setMobileMenuOpen(false)} className="flex items-center">
+                    <div onClick={() => setMobileMenuOpen(false)} className="flex items-center">
                         <img
                             src="/logo.png"
                             className="sm:w-[140] sm:h-[140] w-[110] h-[110] mt-4 object-contain"
@@ -44,13 +45,8 @@ export default function MobileHeader() {
 
                 {/* Right */}
                 <div className="flex items-center gap-3 ml-4">
-                    <button className="text-[24px] text-gray-800">
-                        <IoSearchOutline />
-                    </button>
-
-                    <button className="text-[24px] text-gray-800">
-                        <LuUserRound />
-                    </button>
+                    <span className='cursor-pointer'><IoSearchOutline size={20} /></span>
+                    <Link href={'/cart'}><span className='cursor-pointer bg-amber-800 text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} /></span></Link>
                 </div>
 
             </div>

@@ -6,6 +6,7 @@ import WhyChooseUs from "./home/WhyChooseUs";
 import BecomeSeller from "./home/BecomeSeller";
 import NewArrivals from "./home/NewArrivals";
 import OurStory from "./home/OurStory";
+import FAQSection from "./home/Faq";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <OurStory />
       <WhyChooseUs />
       <BecomeSeller />
+      <FAQSection/>
     </>
   );
 }
