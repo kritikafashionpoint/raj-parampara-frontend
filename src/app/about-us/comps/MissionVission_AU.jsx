@@ -1,91 +1,78 @@
 "use client";
 
-import { Target, Eye, HeartHandshake, Landmark } from "lucide-react";
+import {
+    HandHelping,
+    Globe2,
+    BadgeCheck,
+} from "lucide-react";
 
-export default function MissionVision_AU() {
-    const cards = [
+export default function MissionVission_AU() {
+    const data = [
         {
-            icon: Target,
-            title: "हमारा मिशन",
+            icon: <HandHelping size={34} />,
+            title: "स्थानीय कारीगरों का समर्थन",
             description:
-                "राजस्थान के स्थानीय कारीगरों, शिल्पकारों और छोटे व्यापारियों को एक भरोसेमंद डिजिटल मंच प्रदान करना, जहाँ वे अपने उत्पाद पूरे भारत और दुनिया तक पहुँचा सकें।",
+                "राज परंपरा राजस्थान के कारीगरों और छोटे व्यवसायों को डिजिटल पहचान देकर उनके उत्पादों को अधिक ग्राहकों तक पहुँचाने का प्रयास करता है।",
         },
         {
-            icon: Eye,
-            title: "हमारी सोच",
+            icon: <BadgeCheck size={34} />,
+            title: "प्रामाणिक उत्पाद",
             description:
-                "हर ग्राहक तक प्रामाणिक राजस्थानी उत्पाद पहुँचाना और हर खरीदारी के माध्यम से राजस्थान की कला, संस्कृति और परंपराओं को नई पहचान देना।",
+                "हम ऐसे उत्पादों को प्राथमिकता देते हैं जो राजस्थान की पारंपरिक कला, संस्कृति और शिल्पकला की वास्तविक पहचान को दर्शाते हैं।",
         },
         {
-            icon: HeartHandshake,
-            title: "हमारी प्रतिबद्धता",
+            icon: <Globe2 size={34} />,
+            title: "राजस्थान से विश्व तक",
             description:
-                "गुणवत्ता, पारदर्शिता और विश्वास के साथ ऐसा अनुभव देना जहाँ ग्राहक निश्चिंत होकर खरीदारी करें और विक्रेता गर्व के साथ अपने उत्पाद बेच सकें।",
-        },
-        {
-            icon: Landmark,
-            title: "हमारा भविष्य",
-            description:
-                "राज परंपरा को राजस्थान के पारंपरिक उत्पादों के लिए सबसे विश्वसनीय ऑनलाइन मार्केटप्लेस बनाना, जिससे स्थानीय कला आने वाली पीढ़ियों तक सुरक्षित रह सके।",
+                "हमारा उद्देश्य राजस्थान की सांस्कृतिक विरासत को केवल भारत ही नहीं बल्कि दुनिया के हर कोने तक पहुँचाना है।",
         },
     ];
 
     return (
-        <section className="bg-linear-to-b from-amber-50 to-white py-10">
-            <div className="mx-auto max-w-[1420] lg:px-6 px-4">
+        <section className="w-full bg-white py-10">
+            <div className="max-w-[1420] mx-auto px-4 lg:px-6">
 
-                {/* Heading */}
+                <div className="text-center max-w-3xl mx-auto">
 
-                <div className="mx-auto max-w-3xl text-center">
-
-                    <span className="inline-flex rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-800">
+                    <span className="inline-flex rounded-full bg-amber-100 text-amber-800 px-5 py-2 text-sm font-semibold">
                         हमारा उद्देश्य
                     </span>
 
-                    <h2 className="mt-6 text-4xl leading-normal font-bold text-[#2D1B12] md:text-5xl">
-                        विरासत को संजोना,
-                        <span className="block text-amber-700">
-                            भविष्य से जोड़ना
-                        </span>
+                    <h2 className="mt-6 text-4xl lg:text-5xl font-bold text-[#2D1B12]">
+                        परंपरा को भविष्य से जोड़ना
                     </h2>
 
-                    <p className="mt-6 text-lg leading-9 text-gray-600">
-                        राज परंपरा का हर कदम राजस्थान की संस्कृति,
-                        हस्तशिल्प और स्थानीय व्यापार को नई पहचान देने
-                        की दिशा में बढ़ाया गया है। हमारा उद्देश्य केवल
-                        उत्पाद बेचना नहीं, बल्कि उन कहानियों को दुनिया
-                        तक पहुँचाना है जो हर कारीगर की मेहनत और
-                        परंपरा में बसती हैं।
+                    <p className="mt-6 text-lg leading-9 text-[#6B5B4D]">
+                        राज परंपरा केवल एक ऑनलाइन मार्केटप्लेस नहीं,
+                        बल्कि राजस्थान की कला, संस्कृति और स्थानीय
+                        कारीगरों को नई पहचान देने का एक प्रयास है।
                     </p>
 
                 </div>
 
-                {/* Cards */}
 
-                <div className="mt-16 grid gap-8 md:grid-cols-4">
+                <div className="grid lg:grid-cols-3 gap-8 mt-16">
 
-                    {cards.map((item, index) => {
-                        const Icon = item.icon;
+                    {data.map((item, index) => (
+                        <div
+                            key={index}
+                            className="rounded-[36px] border border-[#E8DCC7] bg-[#FFFBF5] p-10 hover:border-[#D4AF37] hover:shadow-xl transition-all duration-300"
+                        >
 
-                        return (
-                            <div
-                                key={index}
-                                className="rounded-3xl border border-amber-100 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-                            >
-                                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-600 text-white">
-                                    <Icon size={30} />
-                                </div>
-
-                                <h3 className="mt-6 text-2xl font-bold text-[#2D1B12]">
-                                    {item.title}
-                                </h3>
-
-                                <p className="mt-4 leading-8 text-gray-600">
-                                    {item.description}
-                                </p>
+                            <div className="w-16 h-16 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center">
+                                {item.icon}
                             </div>
-                        );
-                    })}
+
+                            <h3 className="mt-8 text-2xl font-bold text-[#2D1B12]">
+                                {item.title}
+                            </h3>
+
+                            <p className="mt-5 text-[#6B5B4D] leading-8">
+                                {item.description}
+                            </p>
+
+                        </div>
+                    ))}
 
                 </div>
 

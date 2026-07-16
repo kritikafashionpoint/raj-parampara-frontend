@@ -1,111 +1,89 @@
-"use client";
-
-import {
-    ShieldCheck,
-    BadgeCheck,
-    Truck,
-    Store,
-    HandHeart,
-    CreditCard,
-} from "lucide-react";
+import Image from 'next/image'
+import React from 'react'
 
 export default function WhyChooseUs_AU() {
-    const features = [
+    const data = [
         {
-            icon: BadgeCheck,
-            title: "प्रामाणिक राजस्थानी उत्पाद",
+            src: "/about/a1.png",
+            heading: "राजस्थान की विरासत, अब हर घर तक",
             description:
-                "हर उत्पाद राजस्थान की समृद्ध संस्कृति, कला और परंपरा को दर्शाता है। हम ऐसे उत्पादों को प्राथमिकता देते हैं जो स्थानीय पहचान और शिल्पकला को जीवित रखते हैं।",
+                "राज परंपरा राजस्थान की समृद्ध संस्कृति, हस्तशिल्प, आभूषण, वस्त्र और पारंपरिक कला को एक विश्वसनीय डिजिटल मंच के माध्यम से देश और दुनिया तक पहुँचाने का प्रयास है।",
         },
         {
-            icon: ShieldCheck,
-            title: "सत्यापित विक्रेता",
+            src: "/about/a2.png",
+            heading: "स्थानीय कारीगरों को पहचान",
             description:
-                "प्रत्येक विक्रेता की जानकारी का सत्यापन किया जाता है ताकि ग्राहकों को विश्वसनीय और सुरक्षित खरीदारी का अनुभव मिल सके।",
+                "हमारा उद्देश्य राजस्थान के कारीगरों, छोटे व्यवसायों और पारंपरिक विक्रेताओं को ऑनलाइन बाज़ार से जोड़कर उनके उत्पादों को अधिक ग्राहकों तक पहुँचाना है।",
         },
         {
-            icon: HandHeart,
-            title: "स्थानीय कारीगरों का समर्थन",
+            src: "/about/a3.png",
+            heading: "प्रामाणिक उत्पाद, भरोसेमंद खरीदारी",
             description:
-                "आपकी हर खरीदारी सीधे राजस्थान के कारीगरों और छोटे व्यापारियों को आगे बढ़ाने में योगदान देती है।",
+                "राज परंपरा पर उपलब्ध प्रत्येक उत्पाद गुणवत्ता, प्रामाणिकता और पारंपरिक शिल्पकला को ध्यान में रखते हुए चुना जाता है, ताकि ग्राहकों को एक उत्कृष्ट खरीदारी अनुभव मिल सके।",
         },
         {
-            icon: CreditCard,
-            title: "सुरक्षित भुगतान",
+            src: "/about/a4.png",
+            heading: "राजस्थान से विश्व तक",
             description:
-                "सभी ऑनलाइन भुगतान सुरक्षित पेमेंट गेटवे के माध्यम से किए जाते हैं, जिससे आपकी लेन-देन पूरी तरह सुरक्षित रहती है।",
+                "हम केवल उत्पाद नहीं बेचते, बल्कि राजस्थान की कला, संस्कृति और परंपराओं को दुनिया के हर कोने तक पहुँचाने का संकल्प लेकर आगे बढ़ रहे हैं।",
         },
-        {
-            icon: Truck,
-            title: "पूरे भारत में डिलीवरी",
-            description:
-                "राजस्थान की पारंपरिक वस्तुएँ अब देश के विभिन्न हिस्सों तक आसानी से पहुँचाई जाती हैं।",
-        },
-        {
-            icon: Store,
-            title: "एक ही स्थान पर सब कुछ",
-            description:
-                "आभूषण, मोजड़ी, वस्त्र, हस्तशिल्प, सजावटी सामान और राजस्थान की अनेक पारंपरिक श्रेणियाँ एक ही मंच पर उपलब्ध हैं।",
-        },
-    ];
-
+    ]
     return (
-        <section className="bg-white py-10">
-            <div className="mx-auto max-w-[1420] px-4 lg:px-6">
+        <div className='py-10'>
+            <div className="text-center max-w-3xl mx-auto mb-5">
 
-                {/* Heading */}
+                <span className="inline-flex rounded-full bg-amber-100 px-5 py-2 text-sm font-semibold text-amber-800">
+                    हमारी पहचान
+                </span>
 
-                <div className="mx-auto max-w-3xl text-center">
+                <h1 className="mt-5 text-4xl md:text-5xl font-bold text-[#2D1B12]">
+                    राज परंपरा की कहानी
+                </h1>
 
-                    <span className="inline-flex rounded-full bg-amber-100 px-4 py-2 text-sm font-medium text-amber-800">
-                        क्यों चुनें राज परंपरा
-                    </span>
-
-                    <h2 className="mt-6 text-4xl leading-normal font-bold text-[#2D1B12] md:text-5xl">
-                        भरोसे, गुणवत्ता और
-                        <span className="block text-amber-700">
-                            राजस्थान की असली पहचान के साथ
-                        </span>
-                    </h2>
-
-                    <p className="mt-6 text-lg leading-9 text-gray-600">
-                        राज परंपरा केवल उत्पादों का संग्रह नहीं है,
-                        बल्कि राजस्थान की संस्कृति और स्थानीय कारीगरों
-                        से जुड़ने का एक भरोसेमंद माध्यम है।
-                    </p>
-
-                </div>
-
-                {/* Cards */}
-
-                <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-
-                    {features.map((feature, index) => {
-                        const Icon = feature.icon;
-
-                        return (
-                            <div
-                                key={index}
-                                className="group rounded-3xl border border-amber-100 bg-amber-50 p-8 transition-all duration-300 hover:-translate-y-2 hover:border-amber-300 hover:bg-white hover:shadow-xl"
-                            >
-                                <div className="flex animate-pulse group-hover:animate-none h-16 w-16 items-center justify-center rounded-2xl bg-amber-600 text-white transition group-hover:scale-110">
-                                    <Icon size={30} />
-                                </div>
-
-                                <h3 className="mt-6 text-2xl font-bold text-[#2D1B12]">
-                                    {feature.title}
-                                </h3>
-
-                                <p className="mt-4 leading-8 text-gray-600">
-                                    {feature.description}
-                                </p>
-                            </div>
-                        );
-                    })}
-
-                </div>
+                <p className="mt-5 text-lg leading-8 text-[#6B5B4D]">
+                    राजस्थान की संस्कृति, कला और हस्तशिल्प को
+                    डिजिटल माध्यम से देश और दुनिया तक पहुँचाने का
+                    हमारा एक छोटा सा प्रयास।
+                </p>
 
             </div>
-        </section>
-    );
+            <div className="max-w-[1420] mx-auto lg:px-6 px-4 grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+
+                {data.map((item, index) => (
+                    <div
+                        key={index}
+                        className="group overflow-hidden rounded-[30px] bg-white border border-[#E8DCC7] hover:border-[#D4AF37] shadow-sm hover:shadow-2xl transition-all duration-500"
+                    >
+
+                        {/* Image */}
+                        <div className="relative h-[300] overflow-hidden">
+
+                            <Image
+                                src={item.src}
+                                alt={item.heading}
+                                fill
+                                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            />
+
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-7">
+
+                            <h2 className="text-2xl font-bold text-[#2D1B12] leading-snug">
+                                {item.heading}
+                            </h2>
+
+                            <p className="mt-4 text-[#6B5B4D] leading-8">
+                                {item.description}
+                            </p>
+
+                        </div>
+
+                    </div>
+                ))}
+
+            </div>
+        </div>
+    )
 }
