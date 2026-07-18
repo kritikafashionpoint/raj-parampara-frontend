@@ -1,14 +1,16 @@
 'use client'
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
-import { LuUserRound } from "react-icons/lu";
 import { MobileMenu } from "../animated_modals/MobileMenu";
 import { ShoppingCartIcon } from "lucide-react";
+import { CartContext } from "../context/CartContext";
 
 export default function MobileHeader() {
+    const { cart } = useContext(CartContext);
+
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     return (
         <div className="lg:hidden block bg-white relative">
@@ -46,7 +48,13 @@ export default function MobileHeader() {
                 {/* Right */}
                 <div className="flex items-center gap-3 ml-4">
                     <span className='cursor-pointer'><IoSearchOutline size={20} /></span>
-                    <Link href={'/cart'}><span className='cursor-pointer bg-amber-800 text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} /></span></Link>
+                    <Link href={'/cart'}>
+                        <span className='relative cursor-pointer bg-amber-800 text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} />
+                            {cart.length >= 1 &&
+                                <span className='w-6 h-6 flex items-center justify-center rounded-full bg-amber-300 text-black absolute -right-2 -top-2 text-[13px]'>{cart.length}</span>
+                            }
+                        </span>
+                    </Link>
                 </div>
 
             </div>

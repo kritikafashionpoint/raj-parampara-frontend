@@ -87,7 +87,8 @@ export default function PcHeader() {
                                 {cart.length >= 1 &&
                                     <span className='w-6 h-6 flex items-center justify-center rounded-full bg-amber-300 text-black absolute -right-2 -top-2 text-[13px]'>{cart.length}</span>
                                 }
-                            </span></Link>
+                            </span>
+                            </Link>
                     </li>
 
                 </ul>
