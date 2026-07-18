@@ -37,6 +37,12 @@ export const addToCart = (product) => {
     return cart;
 };
 
+// check is in cart
+export const isInCart = (productId) => {
+    const cart = getCart();
+    return cart.some((item) => item.id === productId);
+};
+
 // Remove Item
 export const removeFromCart = (productId) => {
     const cart = getCart().filter(

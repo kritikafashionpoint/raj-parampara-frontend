@@ -5,17 +5,18 @@ import HeroSection_AU from './comps/HeroSection_AU'
 import MissionVission_AU from './comps/MissionVission_AU'
 import FaqSection_AU from './comps/FaqSection_AU'
 import WhyChooseUs_AU from './comps/WhyChooseUs_AU'
+import {  about_us_meta } from '../seo/meta_content'
 
 export const metadata = {
-    title: 'About Raj Parampara | Rajasthan Handicrafts & Traditional Store',
-    description: 'Discover Raj Parampara, your trusted online marketplace for authentic Rajasthan handicrafts, Mojari, ethnic wear, jewellery, home décor, and traditional products delivered across India.'
+    title: about_us_meta.title,
+    description: about_us_meta.description
 }
 
 export default function Page() {
     return (
         <>
             <HeroSection_AU />
-            <WhyChooseUs_AU/>
+            <WhyChooseUs_AU />
             <MissionVission_AU />
             <FaqSection_AU />
         </>

@@ -268,7 +268,7 @@ export default function CartClient() {
 
                         </div>
 
-                        <div className="mt-6 bg-amber-50 border border-amber-200 rounded-3xl p-6">
+                        <div className="mt-6 bg-white border border-gray-200 rounded-3xl p-6">
 
                             <h3 className="font-bold text-amber-900">
                                 🎁 राज परंपरा विशेष

@@ -1,9 +1,10 @@
 import React from 'react'
 import LoginClient from './LoginClient'
+import { login_meta } from '../seo/meta_content'
 
 export const metadata = {
-    title: 'Log in to your Raj Parampara account | Raj Parampara',
-    description: 'Log in to your Raj Parampara account to manage orders, wishlist, addresses, and enjoy a seamless shopping experience for authentic Rajasthani handicrafts, jewellery, mojari, ethnic wear, home décor, and traditional products.'
+    title: login_meta.title,
+    description: login_meta.description
 }
 
 export default function Page() {
