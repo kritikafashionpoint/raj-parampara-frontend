@@ -1,11 +1,17 @@
-import { SearchAlertIcon, ShoppingCartIcon } from 'lucide-react';
+'use client'
+import { ShoppingCartIcon } from 'lucide-react';
 import Link from 'next/link'
-import React from 'react'
-import { FaSearch, FaStore } from 'react-icons/fa';
+import React, { useContext } from 'react'
+import { FaStore } from 'react-icons/fa';
 import { HiOutlineCollection, HiOutlineHome, HiOutlineInformationCircle, HiOutlineShoppingBag } from 'react-icons/hi';
 import { IoSearchOutline } from 'react-icons/io5';
+import { CartContext } from '../context/CartContext';
 
 export default function PcHeader() {
+
+    const { cart } = useContext(CartContext);
+    console.log(cart)
+
     const header_data = [
         {
             title: 'होम',
@@ -76,7 +82,12 @@ export default function PcHeader() {
 
                     <li className='flex items-center gap-5'>
                         <span className='cursor-pointer'><IoSearchOutline size={20} /></span>
-                        <Link href={'/cart'}><span className='cursor-pointer bg-amber-800 text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} /></span></Link>
+                        <Link href={'/cart'}>
+                            <span className='relative cursor-pointer bg-amber-800 text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} />
+                                {cart.length >= 1 &&
+                                    <span className='w-6 h-6 flex items-center justify-center rounded-full bg-amber-300 text-black absolute -right-2 -top-2 text-[13px]'>{cart.length}</span>
+                                }
+                            </span></Link>
                     </li>
 
                 </ul>

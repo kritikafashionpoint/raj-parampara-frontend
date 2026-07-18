@@ -2,28 +2,14 @@
 
 import Image from "next/image";
 import { ShieldCheck, TicketPercent, Truck, ArrowRight } from "lucide-react";
+import { products } from "@/app/home/NewArrivals";
+import { getCart } from "@/app/utils/cart";
 
 export default function OrderSummary({ onPlaceOrder }) {
-    const products = [
-        {
-            id: 1,
-            name: "राजस्थानी मोजड़ी",
-            seller: "राज परंपरा स्टोर",
-            qty: 1,
-            price: 1499,
-            image: "/banners/banner.png",
-        },
-        {
-            id: 2,
-            name: "ब्लू पॉटरी फूलदान",
-            seller: "जयपुर हस्तशिल्प",
-            qty: 2,
-            price: 999,
-            image: "/banners/banner.png",
-        },
-    ];
 
-    const subtotal = products.reduce(
+    const cartItems = getCart()
+
+    const subtotal = cartItems.reduce(
         (acc, item) => acc + item.qty * item.price,
         0
     );
@@ -56,7 +42,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                 <div className="p-6 space-y-5">
 
-                    {products.map((item) => (
+                    {cartItems.map((item) => (
 
                         <div
                             key={item.id}
@@ -79,27 +65,21 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                                 <h3 className="font-semibold text-amber-950">
 
-                                    {item.name}
+                                    {item.title}
 
                                 </h3>
 
-                                <p className="text-sm text-amber-900 mt-1">
-
-                                    {item.seller}
-
-                                </p>
-
                                 <div className="mt-3 flex justify-between">
 
-                                    <span className="text-sm text-amber-900">
+                                    <span className="text-sm text-amber-700 font-semibold">
 
-                                        मात्रा : {item.qty}
+                                        मात्रा : {item.quantity}
 
                                     </span>
 
                                     <span className="font-bold text-amber-950">
 
-                                        ₹{item.qty * item.price}
+                                        ₹{item.quantity * item.price}
 
                                     </span>
 

@@ -1,41 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function itemCard({ item, index }) {
+export default function ItemCard({ item }) {
     return (
-
-        <Link
-            key={item.id}
-            href={`/category/${item.slug}`}
-            className="group"
-        >
-            <div className="rounded-t-full overflow-hidden bg-white border border-[#E8DCC7] hover:border-[#D4AF37] shadow-sm hover:shadow-xl transition-all duration-300">
-
+        <div className="w-full h-full flex justify-center">
+            <Link
+                href={`/category/${item.slug}`}
+                className="group flex flex-col items-center"
+            >
                 {/* Image */}
-                <div className="relative h-[260] overflow-hidden">
+                <div className="relative w-[130] h-[130] lg:w-[150] lg:h-[150] overflow-hidden rounded-full border border-gray-300">
                     <Image
-                        src="/banners/b3.png"
+                        src="/token/token.png"
                         alt={item.title}
                         fill
-                        className="object-cover rounded-t-full group-hover:scale-110 transition-transform duration-500"
+                        className="object-cover rounded-full group-hover:scale-105 transition-transform duration-300"
                     />
                 </div>
 
                 {/* Content */}
-                <div className="px-5 py-5 flex items-center justify-between">
-
-                    <h3 className="text-lg font-semibold text-[#2D1B12] line-clamp-2">
-                        {item.title}
-                    </h3>
-
-                    <button className="mt-1 rounded-full border border-[#D4AF37] bg-[#FFF7E6] px-6 py-2 text-sm font-semibold text-[#2D1B12] transition-all duration-300 hover:bg-[#D4AF37] hover:text-white">
-                        श्रेणी देखें
-                    </button>
-
-                </div>
-
-            </div>
-        </Link>
-
+                <h3 className="mt-3 text-center text-lg font-semibold text-[#2D1B12] line-clamp-2">
+                    {item.title}
+                </h3>
+            </Link>
+        </div>
     );
 }

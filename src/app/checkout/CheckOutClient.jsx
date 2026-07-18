@@ -55,7 +55,6 @@ export default function CheckOutClient() {
         setProgress(Math.round((completed / requiredFields.length) * 100));
     }, [formData]);
 
-    console.log(formData);
 
 
     const handlePlaceOrder = async () => {

@@ -2,35 +2,23 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Minus, Plus, Trash2, ShoppingBag, ArrowRight } from "lucide-react";
+import { Minus, Plus, Trash2, ShoppingBag, ArrowRight, ShoppingCart } from "lucide-react";
+import { getCart, getTotalPrice } from "../utils/cart";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 export default function CartClient() {
-    const cartItems = [
-        {
-            id: 1,
-            name: "राजस्थानी मोजड़ी ",
-            seller: "राज परंपरा स्टोर",
-            price: 1499,
-            qty: 1,
-            image: "/banners/banner.png",
-        },
-        {
-            id: 2,
-            name: "ब्लू पॉटरी फूलदान",
-            seller: "जयपुर हस्तशिल्प",
-            price: 999,
-            qty: 2,
-            image: "/banners/banner.png",
-        },
-    ];
+    const cartItems = getCart()
+    const total_of_cart = getTotalPrice()
+    console.log(total_of_cart)
+    const { removeItem, changeQuantity } = useContext(CartContext);
+    console.log(cartItems)
 
     const subtotal = cartItems.reduce(
-        (acc, item) => acc + item.price * item.qty,
+        (acc, item) => acc + item.price * item.quantity,
         0
     );
 
-    const shipping = 0;
-    const total = subtotal + shipping;
 
     return (
         <section className="bg-[#FAF8F5] min-h-screen py-14">
@@ -89,92 +77,131 @@ export default function CartClient() {
                                 </thead>
 
                                 <tbody>
+                                    {
+                                        cartItems.length >= 1
+                                            ?
+                                            (
+                                                cartItems.map((item) => (
 
-                                    {cartItems.map((item) => (
+                                                    <tr
+                                                        key={item.id}
+                                                        className="border-b border-gray-300 last:border-0"
+                                                    >
+                                                        <td className="px-6 py-6">
 
-                                        <tr
-                                            key={item.id}
-                                            className="border-b border-gray-300 last:border-0"
-                                        >
-                                            <td className="px-6 py-6">
+                                                            <div className="lg:flex grid md:grid-cols-[25%_auto] grid-cols-[50%_auto] gap-5 items-center">
 
-                                                <div className="lg:flex grid md:grid-cols-[25%_auto] grid-cols-[50%_auto] gap-5 items-center">
+                                                                <div className="w-24 h-24 rounded-2xl overflow-hidden border">
 
-                                                    <div className="w-24 h-24 rounded-2xl overflow-hidden border">
+                                                                    <Image
+                                                                        src={item.image}
+                                                                        alt={item.title}
+                                                                        width={100}
+                                                                        height={100}
+                                                                        className="w-full h-full object-cover"
+                                                                    />
 
-                                                        <Image
-                                                            src={item.image}
-                                                            alt={item.name}
-                                                            width={100}
-                                                            height={100}
-                                                            className="w-full h-full object-cover"
-                                                        />
+                                                                </div>
 
-                                                    </div>
+                                                                <div>
 
-                                                    <div>
+                                                                    <h3 className="font-semibold text-amber-900 text-lg">
+                                                                        {item.title}
+                                                                    </h3>
 
-                                                        <h3 className="font-semibold text-amber-900 text-lg">
-                                                            {item.name}
-                                                        </h3>
-
-                                                        {/* <p className="text-sm text-gray-500 mt-1">
+                                                                    {/* <p className="text-sm text-gray-500 mt-1">
                                                             Seller :
                                                             {" "}
                                                             {item.seller}
                                                         </p> */}
 
+                                                                </div>
+
+                                                            </div>
+
+                                                        </td>
+
+                                                        <td className="text-center font-semibold text-amber-900">
+                                                            ₹{item.price}
+                                                        </td>
+
+                                                        <td>
+
+                                                            <div className="flex justify-center">
+
+                                                                <div className="flex items-center border rounded-xl overflow-hidden">
+
+                                                                    <button onClick={() => item.quantity >= 1 && changeQuantity(item.id, item.quantity - 1)} className="w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                                                                        <Minus size={16} />
+                                                                    </button>
+
+                                                                    <span className="w-12 text-center">
+                                                                        {item.quantity}
+                                                                    </span>
+
+                                                                    <button onClick={() => changeQuantity(item.id, item.quantity + 1)} className="w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                                                                        <Plus size={16} />
+                                                                    </button>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </td>
+
+                                                        <td className="text-center font-bold text-[#B88A28]">
+                                                            ₹{item.quantity * item.price}
+                                                        </td>
+
+                                                        <td className="text-center">
+
+                                                            <button onClick={() => removeItem(item.id)} className="group text-red-500 cursor-pointer  hover:bg-red-50 rounded-xl p-3 transition">
+
+                                                                <Trash2 className="group-hover:scale-125 duration-200" size={20} />
+
+                                                            </button>
+
+                                                        </td>
+
+                                                    </tr>
+
+                                                ))
+                                            )
+                                            :
+                                            <tr>
+                                                <td colSpan={5} className="py-20">
+                                                    <div className="flex flex-col items-center justify-center text-center px-6">
+
+                                                        {/* Icon */}
+                                                        <div className="w-28 h-28 rounded-full bg-amber-100 flex items-center justify-center shadow-md">
+                                                            <ShoppingCart size={55} className="text-amber-800" />
+                                                        </div>
+
+                                                        {/* Heading */}
+                                                        <h2 className="mt-8 text-3xl font-bold text-amber-900">
+                                                            आपकी कार्ट खाली है
+                                                        </h2>
+
+                                                        {/* Description */}
+                                                        <p className="mt-3 text-gray-500 max-w-md leading-7">
+                                                            आपने अभी तक अपनी कार्ट में कोई उत्पाद नहीं जोड़ा है।
+                                                            राजस्थान के हस्तनिर्मित और पारंपरिक उत्पादों की खरीदारी
+                                                            शुरू करें।
+                                                        </p>
+
+                                                        {/* Button */}
+                                                        <Link href="/shop-now">
+                                                            <button className="mt-8 px-8 py-3 rounded-full bg-linear-to-r from-amber-900 to-amber-700 hover:scale-105 duration-300 text-white font-semibold shadow-lg">
+                                                                खरीदारी शुरू करें
+                                                            </button>
+                                                        </Link>
+
                                                     </div>
+                                                </td>
+                                            </tr>
 
-                                                </div>
+                                    }
 
-                                            </td>
-
-                                            <td className="text-center font-semibold text-amber-900">
-                                                ₹{item.price}
-                                            </td>
-
-                                            <td>
-
-                                                <div className="flex justify-center">
-
-                                                    <div className="flex items-center border rounded-xl overflow-hidden">
-
-                                                        <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100">
-                                                            <Minus size={16} />
-                                                        </button>
-
-                                                        <span className="w-12 text-center">
-                                                            {item.qty}
-                                                        </span>
-
-                                                        <button className="w-10 h-10 flex items-center justify-center hover:bg-gray-100">
-                                                            <Plus size={16} />
-                                                        </button>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </td>
-
-                                            <td className="text-center font-bold text-[#B88A28]">
-                                                ₹{item.qty * item.price}
-                                            </td>
-
-                                            <td className="text-center">
-
-                                                <button className="group text-red-500 cursor-pointer  hover:bg-red-50 rounded-xl p-3 transition">
-
-                                                    <Trash2 className="group-hover:scale-125 duration-200" size={20} />
-
-                                                </button>
-
-                                            </td>
-
-                                        </tr>
-
-                                    ))}
 
                                 </tbody>
 
@@ -214,13 +241,13 @@ export default function CartClient() {
 
                                     <span>कुल राशि</span>
 
-                                    <span>₹{total}</span>
+                                    <span>₹{subtotal}</span>
 
                                 </div>
 
                             </div>
                             <Link href="/checkout">
-                                <button className="w-full mt-8 h-14 rounded-xl bg-amber-900 hover:scale-105 duration-300 cursor-pointer text-white flex items-center justify-center gap-3 font-medium transition">
+                                <button className="w-full mt-8 h-14 rounded-full bg-linear-to-r from-amber-900 to-amber-700 hover:scale-105 duration-300 cursor-pointer text-white flex items-center justify-center gap-3 font-medium transition">
 
                                     खरीदारी पूरी करें
 

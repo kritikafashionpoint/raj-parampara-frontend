@@ -88,13 +88,13 @@ export default function CategoryLandingClient() {
                                 </p>
                             </div>
 
-                            <span className="hidden md:flex rounded-full bg-white border border-[#E8DCC7] px-5 py-2 text-sm font-medium text-[#2D1B12]">
+                            <span className="hidden md:flex rounded-full text-white border border-[#E8DCC7] px-5 py-2 text-sm font-medium bg-[#2D1B12]">
                                 10 श्रेणियाँ
                             </span>
 
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 lg:gap-10 sm:gap-5 gap-5 items-center justify-between">
 
                             {categories.map((item, index) => (
                                 <CategoryCard
