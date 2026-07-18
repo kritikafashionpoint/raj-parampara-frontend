@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { ShieldCheck, TicketPercent, Truck, ArrowRight } from "lucide-react";
+import { ShieldCheck, TicketPercent, Truck, ArrowRight, Minus, Plus, Trash2 } from "lucide-react";
 import { products } from "@/app/home/NewArrivals";
 import { getCart } from "@/app/utils/cart";
+import { useContext } from "react";
+import { CartContext } from "@/app/context/CartContext";
 
 export default function OrderSummary({ onPlaceOrder }) {
 
     const cartItems = getCart()
+    const { removeItem, changeQuantity } = useContext(CartContext);
+
 
     const subtotal = cartItems.reduce(
-        (acc, item) => acc + item.qty * item.price,
+        (acc, item) => acc + item.quantity * item.price,
         0
     );
 
@@ -24,7 +28,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
             {/* Order Summary */}
 
-            <div className="rounded-3xl bg-white border border-amber-200 shadow-xl overflow-hidden">
+            <div className="sm:rounded-3xl bg-white border border-amber-200 shadow-xl overflow-hidden">
 
                 <div className="bg-amber-50 border-b border-amber-200 px-6 py-5">
 
@@ -69,13 +73,24 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                                 </h3>
 
-                                <div className="mt-3 flex justify-between">
+                                <div className="mt-3 flex  items-center gap-3 justify-between">
 
-                                    <span className="text-sm text-amber-700 font-semibold">
+                                    <div className="flex items-center border rounded-xl overflow-hidden">
 
-                                        मात्रा : {item.quantity}
+                                        <button onClick={() => item.quantity >= 1 && changeQuantity(item.id, item.quantity - 1)} className="w-8 h-8 flex items-center justify-center hover:bg-gray-100">
+                                            <Minus size={16} />
+                                        </button>
 
-                                    </span>
+                                        <span className="w-12 text-center">
+                                            {item.quantity}
+                                        </span>
+
+                                        <button onClick={() => changeQuantity(item.id, item.quantity + 1)} className="w-8 h-8 flex items-center justify-center hover:bg-gray-100">
+                                            <Plus size={16} />
+                                        </button>
+
+                                    </div>
+
 
                                     <span className="font-bold text-amber-950">
 
@@ -83,7 +98,15 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                                     </span>
 
+                                    <button onClick={() => removeItem(item.id)} className="group bg-red-500 cursor-pointer  text-white rounded-full p-3 transition">
+
+                                        <Trash2 className="group-hover:scale-125 duration-200" size={19} />
+
+                                    </button>
+
+
                                 </div>
+
 
                             </div>
 
@@ -191,7 +214,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
                         <span className="text-2xl font-bold text-amber-950">
 
-                            ₹{total}
+                            ₹{subtotal}
 
                         </span>
 
@@ -219,7 +242,7 @@ export default function OrderSummary({ onPlaceOrder }) {
 
             {/* Trust Box */}
 
-            <div className="rounded-3xl bg-white border border-amber-200 shadow-xl p-6">
+            <div className="sm:rounded-3xl bg-white border border-amber-200 shadow-xl p-6">
 
                 <div className="flex items-center gap-3">
 

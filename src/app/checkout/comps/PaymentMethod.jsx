@@ -26,7 +26,7 @@ export default function PaymentMethod({
     ];
 
     return (
-        <div className="rounded-3xl border border-amber-200 bg-white shadow-xl overflow-hidden">
+        <div className="sm:rounded-3xl border border-amber-200 bg-white shadow-xl overflow-hidden">
 
             {/* Header */}
 
@@ -69,10 +69,10 @@ export default function PaymentMethod({
 
                             <div className="flex justify-between items-start">
 
-                                <div className="flex gap-5">
+                                <div className="flex flex-wrap gap-5">
 
                                     <div
-                                        className={`w-16 h-16 rounded-2xl flex items-center justify-center ${active
+                                        className={`w-16 h-16 rounded-full flex items-center justify-center ${active
                                             ? "bg-amber-900 text-white"
                                             : "bg-amber-100 text-amber-900"
                                             }`}

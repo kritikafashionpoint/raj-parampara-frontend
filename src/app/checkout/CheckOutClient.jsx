@@ -79,8 +79,8 @@ export default function CheckOutClient() {
 
 
     return (
-        <section className="min-h-screen bg-amber-50 py-10 lg:py-16">
-            <div className="max-w-[1420] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="min-h-screen w-screen overflow-hidden  bg-amber-50 py-10 lg:py-16">
+            <div className="max-w-[1420] mx-auto ">
 
                 {/* Header */}
                 <CheckoutHeader progress={progress} />

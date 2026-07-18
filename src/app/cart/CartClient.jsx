@@ -89,16 +89,16 @@ export default function CartClient() {
                                                     >
                                                         <td className="px-6 py-6">
 
-                                                            <div className="lg:flex grid md:grid-cols-[25%_auto] grid-cols-[50%_auto] gap-5 items-center">
+                                                            <div className="flex gap-5 items-center">
 
-                                                                <div className="w-24 h-24 rounded-2xl overflow-hidden border">
+                                                                <div className="lg:w-16 lg:h-16 w-full h-full rounded-full overflow-hidden border">
 
                                                                     <Image
                                                                         src={item.image}
                                                                         alt={item.title}
                                                                         width={100}
                                                                         height={100}
-                                                                        className="w-full h-full object-cover"
+                                                                        className="w-full h-full object-center rounded-full object-cover"
                                                                     />
 
                                                                 </div>

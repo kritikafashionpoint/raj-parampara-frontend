@@ -7,13 +7,13 @@ export default function CheckoutForm({
     setFormData
 }) {
     return (
-        <div className="rounded-3xl bg-white border border-amber-200 shadow-xl overflow-hidden">
+        <div className="sm:rounded-3xl bg-white border border-amber-200 shadow-xl overflow-hidden">
 
             {/* Header */}
 
-            <div className="px-8 py-6 border-b border-amber-100 bg-amber-50">
+            <div className="md:px-6 px-3 py-6 border-b border-amber-100 bg-amber-50">
 
-                <h2 className="text-2xl font-bold text-amber-950">
+                <h2 className="text-2xl  font-bold text-amber-950">
                     संपर्क एवं डिलीवरी जानकारी
                 </h2>
 

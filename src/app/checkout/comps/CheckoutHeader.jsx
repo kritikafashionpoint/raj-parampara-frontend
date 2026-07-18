@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function CheckoutHeader({ progress }) {
     return (
-        <div className="mb-10">
+        <div className="mb-10 px-4 lg:px-6">
 
             {/* Breadcrumb */}
 
@@ -67,9 +67,9 @@ export default function CheckoutHeader({ progress }) {
 
                 <div className="rounded-3xl border border-amber-200 bg-white shadow-xl p-6 w-full lg:w-[380]">
 
-                    <div className="flex items-start gap-4">
+                    <div className="grid grid-cols-[15%_auto] items-start gap-4">
 
-                        <div className="w-14 h-14 rounded-2xl bg-amber-100 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
 
                             <MapPin
                                 size={26}
