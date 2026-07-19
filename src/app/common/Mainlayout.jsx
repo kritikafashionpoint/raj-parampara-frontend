@@ -1,13 +1,28 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
+"use client";
+
+import React from "react";
+import { usePathname } from "next/navigation";
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Mainlayout({ children }) {
+    const pathname = usePathname();
+
+    const hideLayoutRoutes = [
+        "/seller-dashboard",
+    ];
+
+    const hideLayout = hideLayoutRoutes.some((route) =>
+        pathname.startsWith(route)
+    );
+
     return (
-        <div className=''>
-            <Header />
-            {children}
-            <Footer />
-        </div>
-    )
+        <>
+            {!hideLayout && <Header />}
+
+            <main>{children}</main>
+
+            {!hideLayout && <Footer />}
+        </>
+    );
 }

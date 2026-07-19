@@ -1,5 +1,5 @@
 'use client'
-import { ShoppingCartIcon } from 'lucide-react';
+import { ChartArea, LayoutDashboard, ShoppingCartIcon } from 'lucide-react';
 import Link from 'next/link'
 import React, { useContext } from 'react'
 import { FaStore } from 'react-icons/fa';
@@ -40,6 +40,11 @@ export default function PcHeader() {
             title: 'विक्रेता बनें',
             link: '/seller-onboarding',
             icon: <FaStore />
+        },
+        {
+            title: 'विक्रेता डैशबोर्ड',
+            link: '/seller-dashboard',
+            icon: <LayoutDashboard />
         }
     ];
     return (
@@ -88,7 +93,7 @@ export default function PcHeader() {
                                     <span className='w-6 h-6 flex items-center justify-center rounded-full bg-amber-300 text-black absolute -right-2 -top-2 text-[13px]'>{cart.length}</span>
                                 }
                             </span>
-                            </Link>
+                        </Link>
                     </li>
 
                 </ul>

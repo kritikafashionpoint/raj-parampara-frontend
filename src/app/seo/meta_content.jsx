@@ -52,3 +52,8 @@ export const seller_onboarding_meta = {
     title : '',
     description : ''
 }
+
+export const contact_us_meta = {
+    title : '',
+    description : ''
+}

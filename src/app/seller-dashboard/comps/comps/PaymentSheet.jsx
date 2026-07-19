@@ -135,7 +135,7 @@ export default function PaymentSheet() {
                                 </div>
 
                                 <div
-                                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg`}
+                                    className={`w-16 h-16 rounded-2xl bg-linear-to-br ${item.color} flex items-center justify-center shadow-lg`}
                                 >
 
                                     <Icon
@@ -159,7 +159,7 @@ export default function PaymentSheet() {
 
             <div className="rounded-3xl bg-white border border-amber-100 shadow-sm overflow-hidden">
 
-                <div className="bg-gradient-to-r from-amber-500 to-yellow-400 p-6">
+                <div className="bg-linear-to-r from-amber-500 to-yellow-400 p-6">
 
                     <div className="flex items-center gap-3">
 
@@ -210,7 +210,7 @@ export default function PaymentSheet() {
                                             100
                                         )}%`,
                                     }}
-                                    className="h-full rounded-full bg-gradient-to-r from-amber-500 to-yellow-400"
+                                    className="h-full rounded-full bg-linear-to-r from-amber-500 to-yellow-400"
                                 />
 
                             </div>
@@ -274,7 +274,7 @@ ${withdrawAmount >= minimumWithdraw
 
                 <div className="overflow-x-auto">
 
-                    <table className="w-full min-w-[760px]">
+                    <table className="w-full min-w-[760]">
 
                         <thead className="bg-amber-50">
 
@@ -392,7 +392,7 @@ ${withdrawAmount >= minimumWithdraw
 
                 <div className="overflow-x-auto">
 
-                    <table className="w-full min-w-[700px]">
+                    <table className="w-full min-w-[700]">
 
                         <thead className="bg-amber-50">
 
@@ -466,7 +466,7 @@ ${withdrawAmount >= minimumWithdraw
             </div>
             {/* Withdrawal Policy */}
 
-            <div className="mt-8 rounded-3xl border border-amber-200 bg-gradient-to-r from-amber-50 to-yellow-50 p-7">
+            <div className="mt-8 rounded-3xl border border-amber-200 bg-linear-to-r from-amber-50 to-yellow-50 p-7">
 
                 <h2 className="text-2xl font-bold text-amber-950">
                     निकासी (Withdrawal) नियम
@@ -665,7 +665,7 @@ ${withdrawAmount >= minimumWithdraw
                 <button
                     className="
                         rounded-2xl
-                        bg-gradient-to-r
+                        bg-linear-to-r
                         from-amber-500
                         to-amber-400
                         px-8
@@ -753,7 +753,7 @@ ${withdrawAmount >= minimumWithdraw
 
                 {/* Support */}
 
-                <div className="rounded-3xl bg-gradient-to-br from-amber-400 via-amber-300 to-yellow-200 p-8 shadow-lg">
+                <div className="rounded-3xl bg-linear-to-br from-amber-400 via-amber-300 to-yellow-200 p-8 shadow-lg">
 
                     <div className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white shadow">
 

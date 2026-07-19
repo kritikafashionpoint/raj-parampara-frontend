@@ -65,7 +65,7 @@ export default function ProductCard({ item, index }) {
                             className="w-full lg:h-66 md:h-60 sm:h-60 h-44 object-cover group-hover:scale-105 duration-500"
                         />
 
-                        <span className="absolute rounded-b top-0 right-0 bg-linear-to-t from-red-900 to-red-500 text-white text-xs px-4 py-1.5 ">
+                        <span className="absolute rounded-y-md rounded-b-md top-0 right-0 bg-linear-to-t from-red-800 to-red-500 text-white text-xs px-2 py-1.5 ">
                             Save 20%
                         </span>
 
@@ -98,7 +98,7 @@ export default function ProductCard({ item, index }) {
                                 </div> */}
 
                     {/* Button */}
-                    <div className="grid sm:grid-cols-2 grid-cols-1 gap-3 mt-5">
+                    <div className="sm:px-0 px-5 grid sm:grid-cols-2 grid-cols-1 gap-3 mt-5">
                         <AddtoCartButton alreadyAdded={alreadyAdded} loading={loading} onClick={() => handleAddToCart(item)} />
                         <BuyNowButton />
                     </div>

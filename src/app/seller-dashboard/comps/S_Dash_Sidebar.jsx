@@ -161,16 +161,20 @@ export default function SellerSidebar({
             `}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 pt-5 border-b border-white/10">
-                    <div>
-                        <h1 className="text-2xl font-bold text-amber-800">
-                            राज परंपरा
-                        </h1>
-
-                        <p className="text-xs text-gray-800 mt-1">
-                            Seller Dashboard
-                        </p>
-                    </div>
+                <div className="flex items-center justify-between px-6 pt-5 border-b border-gray-300">
+                    <Link href={'/'}>
+                        <div className='flex items-center justify-start'>
+                            <img src='/logo.png' className='w-[100] h-[100] -ml-5 object-contain object-center' />
+                            <div className='-mt-4 -ml-3'>
+                                <div className='font-extrabold tracking-wider text-amber-700 text-[25px]'>
+                                    राज परंपरा
+                                </div>
+                                <p className='text-sm -mt-1 text-black'>
+                                    राजस्थान से विश्व तक
+                                </p>
+                            </div>
+                        </div>
+                    </Link>
 
                     <button
                         onClick={() => setOpen(false)}
@@ -207,7 +211,7 @@ export default function SellerSidebar({
                         Main Menu
                     </p>
 
-                    <nav className="space-y-2">
+                    <nav className="space-y-4">
                         {menuItems.map((item, index) => {
                             const Icon = item.icon;
 
@@ -219,6 +223,7 @@ export default function SellerSidebar({
                                         ${item.slug === activeTab ? 'bg-amber-300' : 'bg-white'}
                                     flex
                                     items-center
+                                    border
                                     justify-between
                                     cursor-pointer
                                     rounded-xl

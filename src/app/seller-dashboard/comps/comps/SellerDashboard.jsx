@@ -8,7 +8,9 @@ import {
     PlusCircle,
     ShoppingBag,
     ArrowRight,
+    ArrowLeft,
 } from "lucide-react";
+import Link from "next/link";
 
 
 const stats = [
@@ -61,7 +63,7 @@ const recentOrders = [
 
 export default function SellerDashboard({ setActiveTab }) {
     return (
-        <div className="flex-1 bg-white">
+        <div className="flex-1 ">
 
             {/* Navbar */}
 
@@ -77,23 +79,14 @@ export default function SellerDashboard({ setActiveTab }) {
                     </p>
                 </div>
 
-                <div className="flex items-center gap-4">
 
-                    <div className="text-right">
-                        <h3 className="font-semibold">
-                            Tarun Mehra
-                        </h3>
-
-                        <p className="text-sm text-gray-500">
-                            Verified Seller
-                        </p>
-                    </div>
-
-                    <div className="w-12 h-12 rounded-full bg-amber-300 flex items-center justify-center font-bold text-[#2D1B12]">
-                        T
-                    </div>
-
-                </div>
+                <Link
+                    href="/"
+                    className="inline-flex items-center gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-semibold text-[#2D1B12] transition-all duration-300 hover:bg-amber-100 hover:border-amber-400 hover:-translate-x-1"
+                >
+                    <ArrowLeft size={18} />
+                    वापस जाएँ
+                </Link>
 
             </div>
 
@@ -115,7 +108,7 @@ export default function SellerDashboard({ setActiveTab }) {
                     rounded-[28px]
                     bg-white/80
                     backdrop-blur-xl
-                    border border-white
+                    border border-gray-300
                     shadow-[0_10px_40px_rgba(0,0,0,0.06)]
                     hover:shadow-[0_20px_60px_rgba(99,102,241,0.15)]
                     hover:-translate-y-2

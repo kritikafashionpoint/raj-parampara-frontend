@@ -4,8 +4,9 @@ import {
     HiOutlineCollection,
     HiOutlineInformationCircle,
 } from "react-icons/hi";
-import { FaStore } from "react-icons/fa";
+import { FaPhone, FaStore } from "react-icons/fa";
 import Link from "next/link";
+import { LayoutDashboard, Phone } from "lucide-react";
 
 
 export function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
@@ -34,12 +35,24 @@ export function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
             href: "/category",
             icon: <HiOutlineCollection />,
         },
+        {
+            id: 5,
+            title: "संपर्क करें",
+            href: "/contact-us",
+            icon: <Phone />,
+        },
+        {
+            id: 6,
+            title: 'विक्रेता डैशबोर्ड',
+            href: '/seller-dashboard',
+            icon: <LayoutDashboard />
+        }
     ];
 
 
     return (
         <div
-            className={`absolute top-full left-0 w-full h-[calc(100vh-70px)] bg-[#FFFBF5] border-t border-amber-100 z-50 transition-all duration-300 ${mobileMenuOpen
+            className={`absolute top-full left-0 w-full overflow-y-auto custom-scrollbar h-[calc(100vh-70px)] bg-[#FFFBF5] border-t border-amber-100 z-50 transition-all duration-300 ${mobileMenuOpen
                 ? "translate-x-0 opacity-100"
                 : "-translate-x-full opacity-0"
                 }`}
@@ -50,7 +63,7 @@ export function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <div className="px-6 py-6 border-b border-amber-100 bg-linear-to-r from-amber-50 to-white">
 
                     <span className="inline-flex rounded-full bg-amber-100 text-amber-800 px-3 py-1 text-xs font-semibold">
-                        🇮🇳 राजस्थान की शान
+                        राजस्थान की शान
                     </span>
 
                     <h2 className="text-2xl font-bold text-[#2D1B12] mt-4">
@@ -70,6 +83,7 @@ export function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                     {menu_data.map((item, index) => {
                         return (
                             <Link
+                                onClick={() => setMobileMenuOpen(false)}
                                 key={index}
                                 href={item.href}
                                 className="flex items-center gap-4 rounded-2xl px-4 py-4 text-[#2D1B12] hover:bg-white transition"
@@ -96,7 +110,7 @@ export function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                         विक्रेता बनें
                     </Link>
 
-                    <p className="text-center text-xs text-gray-500 mt-4">
+                    <p className="sm:inline hidden text-center text-xs text-gray-500 mt-4">
                         स्थानीय कारीगरों और व्यवसायों को डिजिटल मंच से जोड़ने का प्रयास।
                     </p>
 

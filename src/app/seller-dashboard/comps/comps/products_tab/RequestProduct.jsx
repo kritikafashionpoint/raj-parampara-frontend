@@ -95,26 +95,9 @@ export default function RequestProduct() {
     return (
         <div>
 
-            {/* Header */}
-
-            <div className="my-10 bg-white sm:border border-gray-300 sm:shadow-lg sm:rounded-[40] sm:p-7">
-
-                <h1 className="text-3xl font-bold text-amber-950">
-                    नया उत्पाद अनुरोध
-                </h1>
-
-                <p className="text-amber-800 mt-3 max-w-3xl leading-8">
-                    अपने हस्तनिर्मित, पारंपरिक या राजस्थानी उत्पाद की जानकारी
-                    यहाँ साझा करें। हमारी टीम आपके उत्पाद की समीक्षा करेगी,
-                    तस्वीरों को बेहतर बनाएगी, SEO सामग्री तैयार करेगी और
-                    स्वीकृति मिलने के बाद उत्पाद को राज परंपरा पर प्रकाशित करेगी।
-                </p>
-
-            </div>
-
             {/* Card */}
 
-            <div className="overflow-hidden rounded-[32] sm:border border-amber-200 bg-white sm:shadow-xl">
+            <div className="overflow-hidden rounded-[20] mt-10 sm:border bg-white sm:shadow-xl">
 
                 {/* Top Banner */}
 
@@ -216,6 +199,33 @@ export default function RequestProduct() {
 
                             </select>
 
+                        </div>
+
+                        <div>
+                            <label className="mb-3 flex items-center gap-2 font-semibold text-amber-900">
+                                <Tag size={18} />
+                                उप-श्रेणी
+                            </label>
+
+                            <select className="w-full rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 outline-none transition focus:border-amber-500">
+                                <option>उप-श्रेणी चुनें</option>
+
+                                <option>हार (Necklace)</option>
+                                <option>झुमके (Earrings)</option>
+                                <option>चूड़ियाँ (Bangles)</option>
+                                <option>अंगूठियाँ (Rings)</option>
+                                <option>पायल (Anklets)</option>
+                                <option>मांग टीका</option>
+                                <option>बाजूबंद</option>
+                                <option>कमरबंद</option>
+                                <option>मोजड़ी - पुरुष</option>
+                                <option>मोजड़ी - महिला</option>
+                                <option>हैंडबैग</option>
+                                <option>पोटली बैग</option>
+                                <option>लकड़ी का हस्तशिल्प</option>
+                                <option>संगमरमर हस्तशिल्प</option>
+                                <option>राजस्थानी पेंटिंग</option>
+                            </select>
                         </div>
 
                         <div>
