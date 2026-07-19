@@ -25,105 +25,100 @@ import {
     ChevronRight,
 } from "lucide-react";
 
-const menuItems = [
-    {
-        title: "Dashboard",
-        icon: LayoutDashboard,
-        href: "/seller/dashboard",
-    },
-    {
-        title: "Orders",
-        icon: ShoppingBag,
-        href: "/seller/orders",
-    },
-    {
-        title: "Products",
-        icon: Package,
-        href: "/seller/products",
-    },
-    {
-        title: "Add Product",
-        icon: PlusCircle,
-        href: "/seller/products/new",
-    },
-    {
-        title: "Categories",
-        icon: FolderTree,
-        href: "/seller/categories",
-    },
-    {
-        title: "Customers",
-        icon: Users,
-        href: "/seller/customers",
-    },
-    {
-        title: "Messages",
-        icon: MessageSquare,
-        href: "/seller/messages",
-    },
-    {
-        title: "Reviews",
-        icon: Star,
-        href: "/seller/reviews",
-    },
-    {
-        title: "Token Wallet",
-        icon: Wallet,
-        href: "/seller/token-wallet",
-    },
-    {
-        title: "Payments",
-        icon: IndianRupee,
-        href: "/seller/payments",
-    },
-    {
-        title: "Shipping",
-        icon: Truck,
-        href: "/seller/shipping",
-    },
-    {
-        title: "Coupons",
-        icon: BadgePercent,
-        href: "/seller/coupons",
-    },
-    {
-        title: "Sales Report",
-        icon: BarChart3,
-        href: "/seller/reports",
-    },
-    {
-        title: "Notifications",
-        icon: Bell,
-        href: "/seller/notifications",
-    },
-    {
-        title: "Profile",
-        icon: User,
-        href: "/seller/profile",
-    },
-    {
-        title: "Settings",
-        icon: Settings,
-        href: "/seller/settings",
-    },
-];
 
-export default function SellerSidebar() {
+
+export default function SellerSidebar({
+    setActiveTab,
+    activeTab
+}) {
     const [open, setOpen] = useState(false);
+
+    const menuItems = [
+        {
+            title: "डैशबोर्ड",
+            icon: LayoutDashboard,
+            slug: "dashboard",
+        },
+        {
+            title: "उत्पाद",
+            icon: Package,
+            slug: "products",
+        },
+        {
+            title: "ऑर्डर",
+            icon: ShoppingBag,
+            slug: "orders",
+        },
+        {
+            title: "उत्पाद जोड़ें",
+            icon: PlusCircle,
+            slug: "add-product",
+        },
+        {
+            title: "श्रेणियाँ",
+            icon: FolderTree,
+            slug: "categories",
+        },
+        {
+            title: "ग्राहक",
+            icon: Users,
+            slug: "customers",
+        },
+        {
+            title: "संदेश",
+            icon: MessageSquare,
+            slug: "messages",
+        },
+        {
+            title: "समीक्षाएँ",
+            icon: Star,
+            slug: "reviews",
+        },
+        {
+            title: "टोकन वॉलेट",
+            icon: Wallet,
+            slug: "token-wallet",
+        },
+        {
+            title: "भुगतान",
+            icon: IndianRupee,
+            slug: "payments",
+        },
+        {
+            title: "शिपिंग",
+            icon: Truck,
+            slug: "shipping",
+        },
+        {
+            title: "कूपन",
+            icon: BadgePercent,
+            slug: "coupons",
+        },
+        {
+            title: "बिक्री रिपोर्ट",
+            icon: BarChart3,
+            slug: "sales-report",
+        },
+        {
+            title: "सूचनाएँ",
+            icon: Bell,
+            slug: "notifications",
+        },
+        {
+            title: "प्रोफ़ाइल",
+            icon: User,
+            slug: "profile",
+        },
+        {
+            title: "सेटिंग्स",
+            icon: Settings,
+            slug: "settings",
+        },
+    ];
+
 
     return (
         <>
-            {/* Mobile Toggle */}
-            {
-                open === false
-                &&
-                < button
-                    onClick={() => setOpen(true)}
-                    className="fixed top-21 left-3 z-999 lg:hidden bg-[#2D1B12] text-white p-2 rounded-xl shadow-lg"
-                >
-                    <Menu size={22} />
-                </button >
-            }
 
             {/* Overlay */}
             {
@@ -138,10 +133,13 @@ export default function SellerSidebar() {
             {/* Sidebar */}
             <aside
                 className={`
-                 h-screen
-                w-72
-                bg-[#2D1B12]
-                text-white
+                 
+                w-full
+                pb-5
+                h-screen
+                overflow-y-auto
+                bg-white
+                text-black
                 flex flex-col
                 shadow-2xl
                 z-50
@@ -153,13 +151,13 @@ export default function SellerSidebar() {
             `}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-6 border-b border-white/10">
+                <div className="flex items-center justify-between px-6 pt-5 border-b border-white/10">
                     <div>
-                        <h1 className="text-2xl font-bold text-[#D4AF37]">
+                        <h1 className="text-2xl font-bold text-amber-800">
                             राज परंपरा
                         </h1>
 
-                        <p className="text-xs text-gray-300 mt-1">
+                        <p className="text-xs text-gray-800 mt-1">
                             Seller Dashboard
                         </p>
                     </div>
@@ -174,9 +172,9 @@ export default function SellerSidebar() {
 
                 {/* Seller Card */}
 
-                <div className="mx-5 mt-6 rounded-2xl bg-white/10 p-4 border border-white/10">
+                <div className="mx-4 mt-0 rounded-2xl bg-white p-4 border border-white">
                     <div className="flex items-center gap-3">
-                        <div className="w-14 h-14 rounded-full bg-[#D4AF37] flex items-center justify-center text-[#2D1B12] font-bold text-xl">
+                        <div className="w-14 h-14 rounded-full bg-amber-300 flex items-center justify-center text-[#2D1B12] font-bold text-xl">
                             T
                         </div>
 
@@ -185,7 +183,7 @@ export default function SellerSidebar() {
                                 Tarun Mehra
                             </h2>
 
-                            <p className="text-xs text-gray-300">
+                            <p className="text-xs text-gray-800">
                                 Verified Seller
                             </p>
                         </div>
@@ -195,7 +193,7 @@ export default function SellerSidebar() {
                 {/* Menu */}
 
                 <div className="flex-1 overflow-y-auto custom-scrollbar mt-6 px-4 pb-5">
-                    <p className="text-xs uppercase tracking-widest text-gray-400 mb-4 px-3">
+                    <p className="text-xs uppercase tracking-widest text-gray-800 mb-4 px-3">
                         Main Menu
                     </p>
 
@@ -204,17 +202,19 @@ export default function SellerSidebar() {
                             const Icon = item.icon;
 
                             return (
-                                <Link
+                                <div
+                                    onClick={() => setActiveTab(item.slug)}
                                     key={index}
-                                    href={item.href}
                                     className={`group
+                                        ${item.slug === activeTab ? 'bg-amber-300' : 'bg-white'}
                                     flex
                                     items-center
                                     justify-between
+                                    cursor-pointer
                                     rounded-xl
                                     px-4
                                     py-3
-                                    hover:bg-[#D4AF37]
+                                    hover:bg-amber-300
                                     hover:text-[#2D1B12]
                                     transition-all
                                     duration-300`}
@@ -231,7 +231,7 @@ export default function SellerSidebar() {
                                         size={17}
                                         className="opacity-0 group-hover:opacity-100 transition"
                                     />
-                                </Link>
+                                </div>
                             );
                         })}
                     </nav>
@@ -250,7 +250,9 @@ export default function SellerSidebar() {
                         rounded-xl
                         bg-red-600
                         hover:bg-red-700
+                        cursor-pointer
                         py-3
+                        text-white
                         font-semibold
                         transition
                     "

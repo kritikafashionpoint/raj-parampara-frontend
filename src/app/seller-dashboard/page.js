@@ -7,6 +7,7 @@ export const metadata = {
     description: seller_dashboard_meta.description
 }
 
+
 export default function Page() {
     return (
         <>
