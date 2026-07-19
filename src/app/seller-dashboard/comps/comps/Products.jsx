@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import RequestProduct from './products_tab/RequestProduct'
 import ViewProductRequests from './products_tab/ViewProductRequests'
+import { FaEye, FaFolderPlus } from 'react-icons/fa'
 
 export default function Products() {
     const [activeProductTab, setActiveProductTab] = useState('request')
@@ -18,8 +19,8 @@ export default function Products() {
             </div>
 
             <div className='flex items-center gap-5 my-5'>
-                <button onClick={() => setActiveProductTab('request')} className={`${activeProductTab === 'request' ? 'bg-amber-300' : 'bg-white'} border py-3 cursor-pointer px-7 hover:bg-amber-300 duration-300  rounded-xl`}>Request Product</button>
-                <button onClick={() => setActiveProductTab('view')} className={`${activeProductTab === 'view' ? 'bg-amber-300' : 'bg-white'} border py-3 cursor-pointer px-7 hover:bg-amber-300 duration-300  rounded-xl`}>View Product</button>
+                <button onClick={() => setActiveProductTab('request')} className={`${activeProductTab === 'request' ? 'bg-amber-300' : 'bg-white'} flex items-center gap-3 border py-3 cursor-pointer px-7 hover:bg-amber-300 duration-300  rounded-xl`}><FaFolderPlus /> Product</button>
+                <button onClick={() => setActiveProductTab('view')} className={`${activeProductTab === 'view' ? 'bg-amber-300' : 'bg-white'} flex items-center gap-3 border py-3 cursor-pointer px-7 hover:bg-amber-300 duration-300  rounded-xl`}><FaEye /> Product</button>
             </div>
 
             <div className='my-5'>

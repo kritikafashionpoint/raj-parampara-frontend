@@ -8,8 +8,90 @@ import {
     Sparkles,
     Send,
 } from "lucide-react";
+import { useState } from "react";
+import { X } from "lucide-react";
+import Swal from "sweetalert2";
+const MAX_IMAGES = 5;
+
+
 
 export default function RequestProduct() {
+
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(false)
+
+    const removeImage = (index) => {
+        setImages(images.filter((_, i) => i !== index));
+    };
+
+    const handleImageChange = (e) => {
+        const files = Array.from(e.target.files);
+
+        if (images.length + files.length > MAX_IMAGES) {
+            Swal.fire({
+                title: `Maximum ${MAX_IMAGES} images allowed`,
+                icon: 'warning',
+                timer: 1500
+            })
+            return;
+        }
+
+        const imageData = files.map((file) => ({
+            file,
+            preview: URL.createObjectURL(file),
+        }));
+
+        setImages((prev) => [...prev, ...imageData]);
+    };
+
+    const handleDrop = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const files = Array.from(e.dataTransfer.files).filter(file =>
+            file.type.startsWith("image/")
+        );
+
+        if (!files.length) return;
+
+        if (images.length + files.length > MAX_IMAGES) {
+            return Swal.fire({
+                title: `Maximum ${MAX_IMAGES} images allowed`,
+                icon: "warning",
+                timer: 1500,
+            });
+        }
+
+        const imageData = files.map(file => ({
+            file,
+            preview: URL.createObjectURL(file),
+        }));
+
+        setImages(prev => [...prev, ...imageData]);
+    };
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        if (images.length == 0) {
+            return Swal.fire({
+                title: 'Minimum 1 Image is required',
+                icon: 'warning',
+                timer: 1500
+            })
+        }
+        try {
+            setLoading(true)
+
+        }
+        catch (error) {
+            console.log(error.message)
+        }
+        finally {
+            setLoading(false)
+        }
+    }
+
     return (
         <div>
 
@@ -50,7 +132,10 @@ export default function RequestProduct() {
 
                 {/* Form */}
 
-                <div className="space-y-8 sm:p-8 py-4">
+                <form
+                    onSubmit={handleSubmit}
+
+                    className="space-y-8 sm:p-8 py-4">
 
                     {/* Product Name */}
 
@@ -65,6 +150,7 @@ export default function RequestProduct() {
                         </label>
 
                         <input
+                            required
                             type="text"
                             placeholder="जैसे - राजस्थानी कुंदन हार"
                             className="w-full rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 outline-none transition focus:border-amber-500 focus:ring-4 focus:ring-amber-100"
@@ -85,6 +171,7 @@ export default function RequestProduct() {
                         </label>
 
                         <input
+                            required
                             type="text"
                             placeholder="जैसे - जयपुर का हस्तनिर्मित दुल्हन कुंदन हार"
                             className="w-full rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 outline-none transition focus:border-amber-500 focus:ring-4 focus:ring-amber-100"
@@ -138,6 +225,7 @@ export default function RequestProduct() {
                             </label>
 
                             <input
+                                required
                                 type="number"
                                 placeholder="₹ 999"
                                 className="w-full rounded-2xl border border-amber-200 bg-amber-50 px-5 py-4 outline-none transition focus:border-amber-500 focus:ring-4 focus:ring-amber-100"
@@ -175,56 +263,127 @@ export default function RequestProduct() {
                     <div>
 
                         <label className="mb-3 flex items-center gap-2 font-semibold text-amber-900">
-
                             <ImagePlus size={18} />
 
                             उत्पाद की तस्वीरें
 
                         </label>
 
-                        <div
+                        <label
+                            htmlFor="images"
+                            onDragOver={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }}
+                            onDragEnter={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                            }}
+                            onDrop={handleDrop}
                             className="
-                            group
-                            rounded-3xl
-                            border-2
-                            border-dashed
-                            border-amber-300
-                            bg-gradient-to-br
-                            from-amber-50
-                            to-yellow-50
-                            p-12
-                            text-center
-                            transition-all
-                            duration-300
-                            hover:border-amber-500
-                            hover:bg-amber-100/60
-                            cursor-pointer
-                        "
+        group
+        flex
+        flex-col
+        items-center
+        justify-center
+        rounded-3xl
+        border-2
+        border-dashed
+        border-amber-300
+        bg-linear-to-br
+        from-amber-50
+        to-yellow-50
+        p-12
+        cursor-pointer
+        hover:border-amber-500
+        hover:bg-amber-100/60
+        transition
+    "
                         >
 
-                            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-amber-100 text-amber-600 group-hover:bg-amber-500 group-hover:text-white transition">
+                            <ImagePlus
+                                size={45}
+                                className="text-amber-600 group-hover:scale-110 transition"
+                            />
 
-                                <ImagePlus size={34} />
-
-                            </div>
-
-                            <h3 className="mt-6 text-xl font-bold text-amber-900">
-                                तस्वीरें अपलोड करें
+                            <h3 className="mt-5 text-xl font-bold text-amber-900">
+                                तस्वीरें चुनें
                             </h3>
 
                             <p className="mt-2 text-amber-700">
-                                JPG, PNG या WEBP फ़ाइलें
+                                JPG, PNG, WEBP
                             </p>
 
-                            <p className="mt-4 text-sm leading-7 text-amber-600 max-w-2xl mx-auto">
-                                आपकी तस्वीरों का बैकग्राउंड सफेद किया जाएगा,
-                                गुणवत्ता बेहतर बनाई जाएगी, आकार अनुकूलित किया जाएगा
-                                तथा वेबसाइट के लिए तैयार किया जाएगा।
+                            <p className="mt-4 text-sm text-amber-600 text-center max-w-lg">
+                                एक उत्पाद की कई तस्वीरें अपलोड करें।
+                                हमारी टीम इनका बैकग्राउंड सफेद करेगी तथा गुणवत्ता बेहतर बनाएगी।
                             </p>
+
+                        </label>
+
+                        <input
+                            id="images"
+                            type="file"
+                            accept="image/*"
+                            multiple
+                            onChange={handleImageChange}
+                            className="hidden"
+                        />
+
+                    </div>
+
+                    {images.length > 0 && (
+
+                        <div className="mt-8">
+
+                            <div className="flex justify-between items-center mb-5">
+
+                                <h3 className="font-semibold text-amber-900">
+                                    चुनी गई तस्वीरें
+                                </h3>
+
+                                <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-sm font-medium">
+                                    {images.length}/5
+                                </span>
+
+                            </div>
+
+                            <div className="grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-5">
+
+                                {images.map((image, index) => (
+                                    <div
+                                        key={index}
+                                        className="relative overflow-hidden rounded-3xl border border-amber-200 bg-white shadow hover:shadow-xl transition-all duration-300 group"
+                                    >
+
+                                        <img
+                                            src={image.preview}
+                                            alt=""
+                                            className="w-full aspect-square object-cover group-hover:scale-105 transition duration-500"
+                                        />
+
+                                        {index === 0 && (
+                                            <span className="absolute top-3 left-3 bg-amber-300 border text-black text-sm px-2 py-1 rounded-full">
+                                                मुख्य
+                                            </span>
+                                        )}
+
+                                        <button
+                                            type="button"
+                                            onClick={() => removeImage(index)}
+                                            className="absolute cursor-pointer top-3 right-3 h-8 w-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-red-500 transition"
+                                        >
+                                            <X size={16} />
+                                        </button>
+
+                                    </div>
+                                ))}
+
+                            </div>
 
                         </div>
 
-                    </div>
+                    )}
 
                     {/* Notice */}
 
@@ -257,17 +416,20 @@ export default function RequestProduct() {
                     <div className="flex justify-end">
 
                         <button
+                            type="submit"
                             className="
                             inline-flex
                             items-center
                             gap-3
                             rounded-2xl
-                            bg-gradient-to-r
-                            from-amber-700
+                            bg-linear-to-r
+                            from-amber-300
                             to-amber-500
                             px-8
                             py-4
-                            text-white
+                            text-black
+                            border
+                            cursor-pointer
                             font-semibold
                             shadow-lg
                             transition-all
@@ -285,7 +447,7 @@ export default function RequestProduct() {
 
                     </div>
 
-                </div>
+                </form>
 
             </div>
 
