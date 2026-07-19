@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+
 import {
     LayoutDashboard,
     ShoppingBag,
@@ -24,7 +25,96 @@ import {
     X,
     ChevronRight,
 } from "lucide-react";
+import { FaBars } from "react-icons/fa";
 
+export const menuItems = [
+    {
+        title: "डैशबोर्ड",
+        icon: LayoutDashboard,
+        slug: "dashboard",
+    },
+    {
+        title: "उत्पाद",
+        icon: Package,
+        slug: "products",
+    },
+    {
+        title: "भुगतान",
+        icon: IndianRupee,
+        slug: "payment",
+    }
+    // {
+    //     title: "ऑर्डर",
+    //     icon: ShoppingBag,
+    //     slug: "orders",
+    // },
+    // {
+    //     title: "उत्पाद जोड़ें",
+    //     icon: PlusCircle,
+    //     slug: "add-product",
+    // },
+    // {
+    //     title: "श्रेणियाँ",
+    //     icon: FolderTree,
+    //     slug: "categories",
+    // },
+    // {
+    //     title: "ग्राहक",
+    //     icon: Users,
+    //     slug: "customers",
+    // },
+    // {
+    //     title: "संदेश",
+    //     icon: MessageSquare,
+    //     slug: "messages",
+    // },
+    // {
+    //     title: "समीक्षाएँ",
+    //     icon: Star,
+    //     slug: "reviews",
+    // },
+    // {
+    //     title: "टोकन वॉलेट",
+    //     icon: Wallet,
+    //     slug: "token-wallet",
+    // },
+    // {
+    //     title: "भुगतान",
+    //     icon: IndianRupee,
+    //     slug: "payments",
+    // },
+    // {
+    //     title: "शिपिंग",
+    //     icon: Truck,
+    //     slug: "shipping",
+    // },
+    // {
+    //     title: "कूपन",
+    //     icon: BadgePercent,
+    //     slug: "coupons",
+    // },
+    // {
+    //     title: "बिक्री रिपोर्ट",
+    //     icon: BarChart3,
+    //     slug: "sales-report",
+    // },
+    // {
+    //     title: "सूचनाएँ",
+    //     icon: Bell,
+    //     slug: "notifications",
+    // },
+    // {
+    //     title: "प्रोफ़ाइल",
+    //     icon: User,
+    //     slug: "profile",
+    // },
+    // {
+    //     title: "सेटिंग्स",
+    //     icon: Settings,
+    //     slug: "settings",
+    // },
+
+];
 
 
 export default function SellerSidebar({
@@ -33,88 +123,6 @@ export default function SellerSidebar({
 }) {
     const [open, setOpen] = useState(false);
 
-    const menuItems = [
-        {
-            title: "डैशबोर्ड",
-            icon: LayoutDashboard,
-            slug: "dashboard",
-        },
-        {
-            title: "उत्पाद",
-            icon: Package,
-            slug: "products",
-        },
-        {
-            title: "ऑर्डर",
-            icon: ShoppingBag,
-            slug: "orders",
-        },
-        {
-            title: "उत्पाद जोड़ें",
-            icon: PlusCircle,
-            slug: "add-product",
-        },
-        {
-            title: "श्रेणियाँ",
-            icon: FolderTree,
-            slug: "categories",
-        },
-        {
-            title: "ग्राहक",
-            icon: Users,
-            slug: "customers",
-        },
-        {
-            title: "संदेश",
-            icon: MessageSquare,
-            slug: "messages",
-        },
-        {
-            title: "समीक्षाएँ",
-            icon: Star,
-            slug: "reviews",
-        },
-        {
-            title: "टोकन वॉलेट",
-            icon: Wallet,
-            slug: "token-wallet",
-        },
-        {
-            title: "भुगतान",
-            icon: IndianRupee,
-            slug: "payments",
-        },
-        {
-            title: "शिपिंग",
-            icon: Truck,
-            slug: "shipping",
-        },
-        {
-            title: "कूपन",
-            icon: BadgePercent,
-            slug: "coupons",
-        },
-        {
-            title: "बिक्री रिपोर्ट",
-            icon: BarChart3,
-            slug: "sales-report",
-        },
-        {
-            title: "सूचनाएँ",
-            icon: Bell,
-            slug: "notifications",
-        },
-        {
-            title: "प्रोफ़ाइल",
-            icon: User,
-            slug: "profile",
-        },
-        {
-            title: "सेटिंग्स",
-            icon: Settings,
-            slug: "settings",
-        },
-    ];
 
 
     return (
@@ -129,6 +137,8 @@ export default function SellerSidebar({
                     />
                 )
             }
+
+
 
             {/* Sidebar */}
             <aside

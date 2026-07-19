@@ -99,7 +99,7 @@ export default function RequestProduct() {
 
             <div className="my-10 bg-white sm:border border-gray-300 sm:shadow-lg sm:rounded-[40] sm:p-7">
 
-                <h1 className="text-4xl font-bold text-amber-950">
+                <h1 className="text-3xl font-bold text-amber-950">
                     नया उत्पाद अनुरोध
                 </h1>
 

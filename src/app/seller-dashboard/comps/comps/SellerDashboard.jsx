@@ -59,7 +59,7 @@ const recentOrders = [
     },
 ];
 
-export default function SellerDashboard() {
+export default function SellerDashboard({ setActiveTab }) {
     return (
         <div className="flex-1 bg-white">
 
@@ -198,6 +198,7 @@ export default function SellerDashboard() {
                         {/* Add Product */}
 
                         <button
+                            onClick={() => setActiveTab('products')}
                             className="
             group
             rounded-3xl
@@ -439,15 +440,15 @@ export default function SellerDashboard() {
                                         Order ID
                                     </th>
 
-                                    <th className="text-left text-sm font-semibold text-slate-500">
+                                    <th className="text-left text-sm font-semibold text-slate-500  px-7">
                                         Customer
                                     </th>
 
-                                    <th className="text-left text-sm font-semibold text-slate-500">
+                                    <th className="text-left text-sm font-semibold text-slate-500  px-7">
                                         Amount
                                     </th>
 
-                                    <th className="text-left text-sm font-semibold text-slate-500">
+                                    <th className="text-left text-sm font-semibold text-slate-500  px-7">
                                         Status
                                     </th>
 
@@ -479,15 +480,15 @@ export default function SellerDashboard() {
 
                                         </td>
 
-                                        <td>
+                                        <td className="px-7">
 
                                             <div className="flex items-center gap-5">
 
-                                                <div className="w-10 h-10 rounded-full bg-linear-to-br from-violet-500 to-indigo-600 text-white flex items-center justify-center font-semibold">
+                                                <div className=" w-10 h-10 rounded-full bg-linear-to-br from-violet-500 to-indigo-600 text-white hidden md:flex items-center justify-center font-semibold">
 
                                                     {item.customer.charAt(0)}
 
-                                                </div>  
+                                                </div>
 
                                                 <div className="">
 
@@ -495,7 +496,7 @@ export default function SellerDashboard() {
                                                         {item.customer}
                                                     </h4>
 
-                                                    <p className="text-xs text-slate-400">
+                                                    <p className="hidden md:inline text-xs text-slate-400">
                                                         Premium Customer
                                                     </p>
 
@@ -505,7 +506,7 @@ export default function SellerDashboard() {
 
                                         </td>
 
-                                        <td>
+                                        <td className="px-7">
 
                                             <span className="font-bold text-emerald-600">
                                                 {item.amount}
@@ -513,7 +514,7 @@ export default function SellerDashboard() {
 
                                         </td>
 
-                                        <td>
+                                        <td className="px-7">
 
                                             <span
                                                 className={`
