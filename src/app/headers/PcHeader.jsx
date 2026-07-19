@@ -85,10 +85,12 @@ export default function PcHeader() {
                         </li>
                     </Link> */}
 
-                    <li className='flex items-center gap-5'>
-                        <span className='cursor-pointer'><IoSearchOutline size={20} /></span>
+                    <li className='flex items-center gap-2.5'>
+                        <span className='relative cursor-pointer bg-linear-to-t from-amber-950 to-amber-600 hover:scale-110 duration-200 shadow-lg text-white w-10 h-10 flex items-center justify-center rounded-full'><IoSearchOutline size={18} />
+                            
+                        </span>
                         <Link href={'/cart'}>
-                            <span className='relative cursor-pointer bg-amber-800 text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} />
+                            <span className='relative cursor-pointer bg-linear-to-t from-amber-950 to-amber-600 hover:scale-110 duration-200 shadow-lg text-white w-10 h-10 flex items-center justify-center rounded-full'><ShoppingCartIcon size={18} />
                                 {cart.length >= 1 &&
                                     <span className='w-6 h-6 flex items-center justify-center rounded-full bg-amber-300 text-black absolute -right-2 -top-2 text-[13px]'>{cart.length}</span>
                                 }

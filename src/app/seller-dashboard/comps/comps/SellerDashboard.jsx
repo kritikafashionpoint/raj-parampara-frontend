@@ -32,12 +32,6 @@ const stats = [
         icon: Package,
         color: "bg-orange-100 text-orange-600",
     },
-    {
-        title: "Raj Tokens",
-        value: "420",
-        icon: Wallet,
-        color: "bg-yellow-100 text-yellow-600",
-    },
 ];
 
 const recentOrders = [
@@ -124,7 +118,7 @@ export default function SellerDashboard({ setActiveTab }) {
 
                                     <div>
 
-                                        <p className="text-sm font-medium text-slate-500">
+                                        <p className="text-xl font-semibold text-slate-600">
                                             {item.title}
                                         </p>
 
@@ -166,6 +160,56 @@ export default function SellerDashboard({ setActiveTab }) {
                             </div>
                         );
                     })}
+
+                    <div
+                        className="
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-[28px]
+                    bg-white/80
+                    backdrop-blur-xl
+                    border border-gray-300
+                    shadow-[0_10px_40px_rgba(0,0,0,0.06)]
+                    hover:shadow-[0_20px_60px_rgba(99,102,241,0.15)]
+                    hover:-translate-y-2
+                    transition-all
+                    duration-500
+                    p-6
+                "
+                    >
+                        {/* Background Glow */}
+                        <div className="absolute -top-10 -right-10 w-32 h-32 bg-violet-100 rounded-full blur-3xl opacity-0 group-hover:opacity-100 duration-500" />
+
+                        <div className="relative flex items-start justify-between">
+
+                            <div>
+
+                                <p className="text-xl font-semibold text-slate-600 ">
+                                    Raj Tokens
+                                </p>
+
+                                <h2 className="text-3xl font-bold mt-3 text-slate-900">
+                                    420
+                                </h2>
+                            </div>
+
+                            <img src="/token/token.png" className="w-20 h-20 rounded-full" />
+                        </div>
+
+                        <div className="relative mt-8 flex items-center justify-between">
+
+                            <span className="text-sm text-emerald-600 font-semibold">
+                                +12.5%
+                            </span>
+
+                            <span className="text-sm text-slate-400">
+                                vs last month
+                            </span>
+
+                        </div>
+
+                    </div>
                 </div>
 
                 {/* Quick Actions */}
